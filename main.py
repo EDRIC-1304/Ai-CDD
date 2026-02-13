@@ -53,5 +53,5 @@ if st.button("Analyze Image"):
                 st.image(original, clamp=True)
 
             with col2:
-                st.subheader("After Morphological Closing")
+                st.subheader("After Morphological")
                 st.image(morph_close, clamp=True)
