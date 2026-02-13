@@ -10,7 +10,7 @@ from typing import Optional
 from preprocessing.dataset import LungDataset
 from models.moet import MoETClassifier
 
-def train_model(data_path: str, save_path: str, epochs: int = 25, batch_size: int = 16, learning_rate: float = 1e-4) -> None:
+def train_model(data_path: str, save_path: str, epochs: int = 50, batch_size: int = 32, learning_rate: float = 1e-4) -> None:
     """Train MoET classifier on lung dataset."""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
