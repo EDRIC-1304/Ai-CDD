@@ -92,28 +92,60 @@ class TrainedModelLoader:
     def _load_adding_format(self) -> MoETClassifier:
         """
         Handle custom .adding file format
-        This is a placeholder - adjust based on your actual file format
         """
         try:
-            # Try loading as PyTorch first
-            state_dict = torch.load(self.model_path, map_location=self.device)
-            self.model.load_state_dict(state_dict)
-            return self.model
-        except:
-            # If that fails, try other methods
-            try:
-                import pickle
-                with open(self.model_path, 'rb') as f:
-                    data = pickle.load(f)
+            # Try different pickle protocols
+            import pickle
+            
+            # Method 1: Try with different protocols
+            for protocol in [None, 2, 3, 4, 5]:
+                try:
+                    with open(self.model_path, 'rb') as f:
+                        if protocol is None:
+                            data = pickle.load(f)
+                        else:
+                            data = pickle.load(f, encoding='latin1')
+                    
+                    print(f"✅ Loaded .adding file with protocol handling")
+                    
+                    # Handle different data formats
                     if hasattr(data, 'state_dict'):
                         self.model.load_state_dict(data.state_dict())
                     elif isinstance(data, dict):
-                        self.model.load_state_dict(data)
+                        if 'state_dict' in data:
+                            self.model.load_state_dict(data['state_dict'])
+                        elif all(k.replace('.', '').replace('_','').isalnum() or k.startswith('.') for k in data.keys()):
+                            self.model.load_state_dict(data)
+                        else:
+                            # Try to extract state dict from nested structure
+                            for key in data:
+                                if isinstance(data[key], dict) and any('weight' in k or 'bias' in k for k in data[key].keys()):
+                                    self.model.load_state_dict(data[key])
+                                    break
+                            else:
+                                raise ValueError("Cannot find state dict in .adding file")
                     else:
-                        raise ValueError("Unknown .adding format")
+                        raise ValueError(f"Unknown .adding data type: {type(data)}")
+                    
+                    return self.model
+                    
+                except (pickle.UnpicklingError, UnicodeDecodeError, ValueError) as e:
+                    print(f"Protocol {protocol} failed: {e}")
+                    continue
+            
+            # Method 2: Try torch.load with different map_locations
+            try:
+                import torch
+                state_dict = torch.load(self.model_path, map_location='cpu', pickle_module=pickle)
+                self.model.load_state_dict(state_dict)
                 return self.model
             except Exception as e:
-                raise ValueError(f"Cannot load .adding file: {e}")
+                print(f"Torch load failed: {e}")
+            
+            raise ValueError(f"Cannot load .adding file with any method")
+            
+        except Exception as e:
+            raise ValueError(f"Cannot load .adding file: {e}")
     
     def predict(self, input_tensor: torch.Tensor) -> torch.Tensor:
         """

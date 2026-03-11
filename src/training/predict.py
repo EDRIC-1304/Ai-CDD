@@ -28,7 +28,7 @@ def preprocess_image(img_path: str) -> torch.Tensor:
     return img
 
 
-def predict(image_path: str, model_path: str = "models_saved/tb_moet.pth") -> Tuple[int, float]:
+def predict(image_path: str, model_path: str = "lung.adding") -> Tuple[int, float]:
     """Predict disease from image using trained model."""
     # Initialize model loader
     loader = TrainedModelLoader(model_path)
@@ -53,7 +53,7 @@ def main():
         sys.exit(1)
     
     image_path = sys.argv[1]
-    model_path = sys.argv[2] if len(sys.argv) > 2 else "models_saved/tb_moet.pth"
+    model_path = sys.argv[2] if len(sys.argv) > 2 else "lung_model.pth"
     
     try:
         prediction, confidence = predict(image_path, model_path)
