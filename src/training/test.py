@@ -7,20 +7,19 @@ from torch.utils.data import DataLoader
 from typing import Tuple
 
 from preprocessing.dataset import LungDataset
-from models.moet import MoETClassifier
+from utils.model_loader import TrainedModelLoader
+
 def evaluate_model(model_path: str, data_path: str, batch_size: int = 16) -> Tuple[float, int]:
     """Evaluate trained MoET classifier on test dataset."""
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Using device: {device}")
+    print(f"Using device: auto")
     
     # Check if model file exists
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"Model file not found: {model_path}")
     
-    # Load model
-    model = MoETClassifier().to(device)
-    model.load_state_dict(torch.load(model_path, map_location=device))
-    model.eval()
+    # Load model using model loader
+    loader = TrainedModelLoader(model_path)
+    model = loader.load_model()
     
     # Load dataset
     dataset = LungDataset(data_path)
@@ -34,9 +33,6 @@ def evaluate_model(model_path: str, data_path: str, batch_size: int = 16) -> Tup
     
     with torch.no_grad():
         for imgs, labels in loader:
-            imgs = imgs.to(device)
-            labels = labels.to(device)
-            
             outputs = model(imgs)
             preds = outputs.argmax(1)
             

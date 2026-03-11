@@ -8,7 +8,7 @@ from typing import Tuple
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from models.moet import MoETClassifier
+from utils.model_loader import TrainedModelLoader
 
 
 def preprocess_image(img_path: str) -> torch.Tensor:
@@ -30,27 +30,19 @@ def preprocess_image(img_path: str) -> torch.Tensor:
 
 def predict(image_path: str, model_path: str = "models_saved/tb_moet.pth") -> Tuple[int, float]:
     """Predict disease from image using trained model."""
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # Initialize model loader
+    loader = TrainedModelLoader(model_path)
     
-    # Load model
-    if not os.path.exists(model_path):
-        raise FileNotFoundError(f"Model not found: {model_path}")
-        
-    model = MoETClassifier().to(device)
-    model.load_state_dict(torch.load(model_path, map_location=device))
-    model.eval()
+    # Load the trained model
+    model = loader.load_model()
     
     # Preprocess image
     img = preprocess_image(image_path)
-    img = img.to(device)
     
-    # Predict
-    with torch.no_grad():
-        output = model(img)
-        probs = torch.softmax(output, dim=1)
-        conf, pred = torch.max(probs, dim=1)
+    # Make prediction
+    prediction, confidence = loader.get_confidence_and_prediction(img)
     
-    return pred.item(), conf.item()
+    return prediction, confidence
 
 
 def main():
