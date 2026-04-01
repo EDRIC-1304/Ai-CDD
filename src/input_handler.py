@@ -49,6 +49,14 @@ def clean_dataset(input_dir, output_dir):
 
     count = 0
     skipped = 0
+    write_attempts = 0
+    write_success = 0
+    write_fail = 0
+
+    seen_names = set()
+    duplicates = []
+
+
 
     for file in tqdm(os.listdir(input_dir)):
         ext = os.path.splitext(file)[1].lower()
@@ -57,6 +65,12 @@ def clean_dataset(input_dir, output_dir):
             continue
 
         input_path = os.path.join(input_dir, file)
+
+        name = os.path.splitext(file)[0]
+        if name in seen_names:
+            duplicates.append(name)
+        else:
+            seen_names.add(name)
 
         # Validate image
         if not is_valid_image(input_path):
@@ -70,14 +84,29 @@ def clean_dataset(input_dir, output_dir):
         # Preserve filename (only change extension to PNG)
         filename = os.path.splitext(file)[0] + ".png"
         output_path = os.path.join(output_dir, filename)
+        
+        success = cv2.imwrite(output_path, img)
+        write_attempts +=1
+        
+        check = cv2.imread(output_path)
 
-        cv2.imwrite(output_path, img)
+        if (not success) or (check is None):
+            write_fail += 1
+            continue
+        else:
+            write_success +=1
+
 
         count += 1
 
     print("\n✅ Cleaning Completed:", input_dir)
+    print("Unique filenames:", len(seen_names))
     print(f"✔ Valid images saved: {count}")
     print(f"❌ Corrupt/Skipped: {skipped}")
+    print(f"Write Attempts: {write_attempts}")
+    print(f"Success: {write_success}")
+    print(f"Fail: {write_fail}")
+    print("Duplicate names:\n", duplicates)
     print("-" * 50)
 
 # -----------------------------

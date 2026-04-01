@@ -1,17 +1,51 @@
 import os
+import re
 
-IMAGE_DIR = "C:/Users/Ant PC/Desktop/22co12 FY_PROJ/AI-CDD/Ai-CDD/data/raw/train/preprocessed_xray_images"
-MASK_DIR  = "C:/Users/Ant PC/Desktop/22co12 FY_PROJ/AI-CDD/Ai-CDD/data/raw/train/xray-mask"
+folders = [
+    r"C:\Users\Ant PC\Desktop\22co12 FY_PROJ\AI-CDD\Ai-CDD\data\raw\train\tb vs normal classification dataset\test\Normal",
+    r"C:\Users\Ant PC\Desktop\22co12 FY_PROJ\AI-CDD\Ai-CDD\data\raw\train\tb vs normal classification dataset\test\TB",
+    r"C:\Users\Ant PC\Desktop\22co12 FY_PROJ\AI-CDD\Ai-CDD\data\raw\train\tb vs normal classification dataset\train\normal",
+    r"C:\Users\Ant PC\Desktop\22co12 FY_PROJ\AI-CDD\Ai-CDD\data\raw\train\tb vs normal classification dataset\train\TB",
+    r"C:\Users\Ant PC\Desktop\22co12 FY_PROJ\AI-CDD\Ai-CDD\data\raw\train\tb vs normal classification dataset\validation\Normal",
+    r"C:\Users\Ant PC\Desktop\22co12 FY_PROJ\AI-CDD\Ai-CDD\data\raw\train\tb vs normal classification dataset\validation\TB"
+]
 
-mask_files = sorted(os.listdir(MASK_DIR))
+def natural_key(s):
+    return [int(text) if text.isdigit() else text.lower()
+            for text in re.split(r'(\d+)', s)]
 
-for i, file in enumerate(mask_files):
-    old_path = os.path.join(MASK_DIR, file)
-    new_name = f"mask_{i}.png"
-    new_path = os.path.join(MASK_DIR, new_name)
+for folder in folders:
+    print(f"Processing: {folder}")
 
-    os.rename(old_path, new_path)
+    files = sorted(os.listdir(folder), key=natural_key)
 
-print("All masks renamed successfully")
-print(sorted(os.listdir(IMAGE_DIR))[:10])
-print(sorted(os.listdir(MASK_DIR))[:10])
+    # Filter only files
+    files = [f for f in files if os.path.isfile(os.path.join(folder, f))]
+
+    if not files:
+        print("  Skipped (empty folder)")
+        continue
+
+    # Step 1: temp rename
+    temp_names = []
+    for i, filename in enumerate(files):
+        ext = os.path.splitext(filename)[1]
+        temp_name = f"temp_{i}{ext}"
+
+        os.rename(
+            os.path.join(folder, filename),
+            os.path.join(folder, temp_name)
+        )
+        temp_names.append(temp_name)
+
+    # Step 2: final rename
+    for i, filename in enumerate(temp_names, start=1):
+        ext = os.path.splitext(filename)[1]
+        new_name = f"img_{i:04d}{ext}"
+
+        os.rename(
+            os.path.join(folder, filename),
+            os.path.join(folder, new_name)
+        )
+
+    print(f"  Done: {len(files)} files renamed\n")
