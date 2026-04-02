@@ -112,8 +112,8 @@ def clean_dataset(input_dir, output_dir):
 # -----------------------------
 # RUN
 # -----------------------------
-clean_dataset(INPUT_DIR_TEST_NORMAL, OUTPUT_DIR_TEST_NORMAL)
-clean_dataset(INPUT_DIR_TEST_TB, OUTPUT_DIR_TEST_TB)
+# clean_dataset(INPUT_DIR_TEST_NORMAL, OUTPUT_DIR_TEST_NORMAL)
+# clean_dataset(INPUT_DIR_TEST_TB, OUTPUT_DIR_TEST_TB)
 clean_dataset(INPUT_DIR_TRAIN_NORMAL, OUTPUT_DIR_TRAIN_NORMAL)
 clean_dataset(INPUT_DIR_TRAIN_TB, OUTPUT_DIR_TRAIN_TB)
 clean_dataset(INPUT_DIR_VAL_NORMAL, OUTPUT_DIR_VAL_NORMAL)

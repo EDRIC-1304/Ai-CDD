@@ -1,30 +1,22 @@
 import os
 import cv2
 import numpy as np
-import torch
 from tqdm import tqdm
 
 # -----------------------------
-# CONFIG
+# BASE PATHS
 # -----------------------------
-IMG_SIZE = 256
+BASE_IN = "C:/Users/Ant PC/Desktop/22co12 FY_PROJ/AI-CDD/Ai-CDD/data/processed/xray_unet_output"
+BASE_OUT = "C:/Users/Ant PC/Desktop/22co12 FY_PROJ/AI-CDD/Ai-CDD/data/processed/xray_masks_clean"
 
-MODEL_PATH = "checkpoints/best.pth"
-INPUT_DIR = "data/raw/train/preprocessed_xray_images"
-OUTPUT_MASK_DIR = "data/processed/masks_clean"
-
-os.makedirs(OUTPUT_MASK_DIR, exist_ok=True)
-
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-# -----------------------------
-# LOAD MODEL
-# -----------------------------
-from Unet_xray import UNet  # import your model class
-
-model = UNet().to(DEVICE)
-model.load_state_dict(torch.load(MODEL_PATH, map_location=DEVICE))
-model.eval()
+DATASETS = [
+    ("test/Normal", "test/Normal"),
+    ("test/TB", "test/TB"),
+    ("train/normal", "train/normal"),
+    ("train/TB", "train/TB"),
+    ("validation/Normal", "validation/Normal"),
+    ("validation/TB", "validation/TB"),
+]
 
 # -----------------------------
 # HELPERS
@@ -58,69 +50,80 @@ def fill_holes(mask):
 
 
 # -----------------------------
-# MAIN PIPELINE
+# MAIN PROCESS FUNCTION
 # -----------------------------
-def process_image(image_path):
-    original = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-    if original is None:
-        return None
+def process_dataset(input_dir, output_dir):
 
-    h, w = original.shape
+    os.makedirs(output_dir, exist_ok=True)
 
-    # Resize for model
-    img = cv2.resize(original, (IMG_SIZE, IMG_SIZE))
-    img = img.astype(np.float32) / 255.0
-    img = np.expand_dims(img, axis=0)
-    img = np.expand_dims(img, axis=0)
+    files = os.listdir(input_dir)
 
-    img_tensor = torch.tensor(img, dtype=torch.float32).to(DEVICE)
+    processed = 0
+    failed = 0
 
-    # -------------------------
-    # STAGE 3 OUTPUT (probability mask)
-    # -------------------------
-    with torch.no_grad():
-        pred = model(img_tensor)[0, 0].cpu().numpy()
+    for file in tqdm(files):
 
-    pred = cv2.resize(pred, (w, h))
+        input_path = os.path.join(input_dir, file)
 
-    # -------------------------
-    # STAGE 4 STARTS HERE
-    # -------------------------
+        # Load probability mask (grayscale)
+        pred = cv2.imread(input_path, cv2.IMREAD_GRAYSCALE)
 
-    # 1. THRESHOLD (CRITICAL)
-    mask = (pred > 0.5).astype(np.uint8) * 255
+        if pred is None:
+            failed += 1
+            continue
 
-    # 2. MORPHOLOGICAL OPENING (remove noise)
-    kernel_open = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel_open, iterations=2)
+        # Convert to 0–1
+        pred = pred.astype(np.float32) / 255.0
 
-    # 3. MORPHOLOGICAL CLOSING (fix broken lungs)
-    kernel_close = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
-    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel_close, iterations=2)
+        # -------------------------
+        # STAGE 4
+        # -------------------------
 
-    # 4. KEEP ONLY 2 LARGEST COMPONENTS
-    mask = keep_largest_components(mask, 2)
+        # 1. THRESHOLD
+        mask = (pred > 0.5).astype(np.uint8) * 255
 
-    # 5. FILL HOLES
-    mask = fill_holes(mask)
+        # 2. MORPHOLOGICAL OPENING (remove noise)
+        kernel_open = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
+        mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel_open, iterations=2)
 
-    return mask
+        # 3. MORPHOLOGICAL CLOSING (fix broken lungs)
+        kernel_close = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
+        mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel_close, iterations=2)
+
+        # 4. KEEP ONLY 2 LARGEST COMPONENTS
+        mask = keep_largest_components(mask, 2)
+
+        # 5. FILL HOLES
+        mask = fill_holes(mask)
+
+        # Save
+        output_path = os.path.join(output_dir, file)
+        success = cv2.imwrite(output_path, mask)
+
+        if not success:
+            failed += 1
+            continue
+
+        processed += 1
+
+    print(f"\n✅ Completed: {input_dir}")
+    print(f"✔ Processed: {processed}")
+    print(f"❌ Failed: {failed}")
+    print("-" * 50)
 
 
 # -----------------------------
-# RUN ON DATASET
+# RUN ALL DATASETS
 # -----------------------------
-image_files = os.listdir(INPUT_DIR)
+for in_sub, out_sub in DATASETS:
 
-for file in tqdm(image_files):
-    path = os.path.join(INPUT_DIR, file)
+    input_path = os.path.join(BASE_IN, in_sub)
+    output_path = os.path.join(BASE_OUT, out_sub)
 
-    mask = process_image(path)
-
-    if mask is None:
+    if not os.path.exists(input_path):
+        print(f"❌ Missing path: {input_path}")
         continue
 
-    save_path = os.path.join(OUTPUT_MASK_DIR, file)
-    cv2.imwrite(save_path, mask)
+    process_dataset(input_path, output_path)
 
-print("✅ Stage 4 completed: Clean masks saved")
+print("✅ Stage 4 completed for all datasets")
