@@ -4,8 +4,8 @@
 
 dataset.py :   combines 3 datasets into one dataset
 explore.py  :   explores the size and the amount of images in datsets
-xray_preprocessing.py   : stage 1processing greyscale + resize + CLAHE
-
+xray_preprocessing.py   : stage 1 processing greyscale + resize + CLAHE
+xray_unet_preprocessing.py  : stage2 preprocessing
 
 
 
