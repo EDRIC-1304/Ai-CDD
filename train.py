@@ -286,24 +286,36 @@ def validate(model, dataset):
     tb_tp = 0
     tb_fn = 0
 
+    # 🔥 Build prototypes from entire validation set
+    embeddings = []
+    labels = []
+
+    with torch.no_grad():
+        for path, label in dataset.samples:
+            img = load_image(path).unsqueeze(0).to(DEVICE)
+            emb = model(img)
+
+            embeddings.append(emb)
+            labels.append(label)
+
+    embeddings = torch.cat(embeddings)
+    labels = torch.tensor(labels).to(DEVICE)
+
+    prototypes = compute_prototypes(embeddings, labels)
+
+    # 🔥 Now classify using distance
     with torch.no_grad():
         for path, label in dataset.samples:
 
             img = load_image(path).unsqueeze(0).to(DEVICE)
-
             emb = model(img)
 
-            # Dummy prototypes (1 sample each class)
-            # Not ideal, but works for validation baseline
-            # Better version can use support set later
-
-            # For now: simple linear decision boundary
-            pred = torch.argmax(emb, dim=1).item()
+            dists = euclidean_dist(emb, prototypes)
+            pred = torch.argmax(-dists, dim=1).item()
 
             if pred == label:
                 correct += 1
 
-            # TB recall tracking
             if label == 1:
                 if pred == 1:
                     tb_tp += 1
@@ -316,7 +328,6 @@ def validate(model, dataset):
     recall_tb = tb_tp / (tb_tp + tb_fn + 1e-8)
 
     return acc, recall_tb
-
 
 # -----------------------------
 # TRAIN
