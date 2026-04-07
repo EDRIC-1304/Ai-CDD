@@ -164,3 +164,8 @@ venv/
 *.log
 .DS_Store
 Thumbs.db
+
+dataset/
+dataset1/
+dataset2/
+dataset3/
