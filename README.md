@@ -2,10 +2,25 @@
 
 
 
-dataset.py :   combines 3 datasets into one dataset
-explore.py  :   explores the size and the amount of images in datsets
-xray_preprocessing.py   : stage 1 processing greyscale + resize + CLAHE
-xray_unet_preprocessing.py  : stage2 preprocessing
+# Project File Overview
+
+## dataset.py
+Combines three separate datasets into a single unified dataset for training and evaluation.
+
+## explore.py
+Analyzes the datasets by:
+- Checking dataset sizes
+- Counting the number of images
+- Providing basic dataset statistics
+
+## xray_preprocessing.py
+Performs **Stage 1 preprocessing**, including:
+- Converting images to grayscale
+- Resizing images to a standard size
+- Applying CLAHE (Contrast Limited Adaptive Histogram Equalization) for contrast enhancement
+
+## xray_unet_preprocessing.py
+Handles **Stage 2 preprocessing**, preparing the data specifically for U-Net model input.
 
 
 
