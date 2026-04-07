@@ -6,3 +6,4 @@ tqdm==4.67.1
 scikit-learn==1.8.0
 matplotlib
 pillow
+streamlit

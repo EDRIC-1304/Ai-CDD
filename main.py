@@ -1,14 +1,27 @@
 import streamlit as st
 from PIL import Image
+import numpy as np
+
 from src.utils.scan_type_classifier import predict_scan_type
 from src.utils.ct_classifier import segment_ct_lung
 from src.utils.xray_classifier import xray_process
 
+# -----------------------------
+# CONFIG
+# -----------------------------
+st.set_page_config(page_title="AI-CDD", layout="wide")
+
 prediction_dict = {1: "CT scan", 2: "X-ray"}
 
-st.set_page_config(page_title="AI-CDD", layout="centered")
-st.title("Image Upload Interface")
+# -----------------------------
+# UI HEADER
+# -----------------------------
+st.title("🧠 AI-CDD: TB Detection System")
+st.markdown("Upload a scan to analyze lung regions and detect Tuberculosis.")
 
+# -----------------------------
+# FILE UPLOAD
+# -----------------------------
 uploaded_file = st.file_uploader(
     "Upload Image",
     type=["png", "jpg", "jpeg", "jfif"]
@@ -17,41 +30,96 @@ uploaded_file = st.file_uploader(
 if uploaded_file:
     image = Image.open(uploaded_file).convert("RGB")
     st.session_state["image"] = image
-    st.image(image, caption="Original Image", use_container_width=True)
 
+    st.subheader("📌 Uploaded Image")
+    st.image(image, use_container_width=True)
+
+# -----------------------------
+# ANALYZE BUTTON
+# -----------------------------
 if st.button("Analyze Image"):
+
     if "image" not in st.session_state:
         st.warning("Upload an image first.")
-    else:
-        image = st.session_state["image"]
+        st.stop()
 
-        scan_type = prediction_dict[predict_scan_type(image)]
-        st.success(f"Classification complete → {scan_type}")
+    image = st.session_state["image"]
 
-        if scan_type == "CT scan":
-            orig, binary_mask, morph_mask = segment_ct_lung(image)
-            st.success("Segmentation complete")
+    # -----------------------------
+    # STEP 1: SCAN TYPE
+    # -----------------------------
+    scan_type = prediction_dict[predict_scan_type(image)]
+    st.success(f"Scan Type Detected → {scan_type}")
 
-            col1, col2 = st.columns(2)
+    st.markdown("---")
 
-            with col1:
-                st.subheader("Original")
-                st.image(orig, clamp=True)
+    # =============================
+    # CT PIPELINE
+    # =============================
+    if scan_type == "CT scan":
 
-            with col2:
-                st.subheader("After Morphology")
-                st.image(morph_mask * 255, clamp=True)
-        
-        elif scan_type == "X-ray":
-            original, morph_close = xray_process(image)
-            st.success("X-ray processing complete")
+        orig, binary_mask, morph_mask = segment_ct_lung(image)
 
-            col1, col2 = st.columns(2)
+        st.subheader("🧪 CT Segmentation Results")
 
-            with col1:
-                st.subheader("Original")
-                st.image(original, clamp=True)
+        col1, col2, col3 = st.columns(3)
 
-            with col2:
-                st.subheader("After Morphological")
-                st.image(morph_close, clamp=True)
+        with col1:
+            st.markdown("**Original**")
+            st.image(orig, clamp=True)
+
+        with col2:
+            st.markdown("**Binary Mask**")
+            st.image(binary_mask * 255, clamp=True)
+
+        with col3:
+            st.markdown("**Cleaned Mask**")
+            st.image(morph_mask * 255, clamp=True)
+
+        st.info("CT classification not implemented yet.")
+
+    # =============================
+    # X-RAY PIPELINE
+    # =============================
+    elif scan_type == "X-ray":
+
+        # IMPORTANT: this function MUST return 4 outputs
+        # original, mask, roi, prediction
+        original, mask, roi, prediction = xray_process(image)
+
+        st.subheader("🩻 X-ray Processing Pipeline")
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.markdown("**Original**")
+            st.image(original, clamp=True)
+
+        with col2:
+            st.markdown("**Stage 3: Lung Mask**")
+            st.image(mask * 255, clamp=True)
+
+        with col3:
+            st.markdown("**Stage 4: ROI (Model Input)**")
+            st.image(roi, clamp=True)
+
+        st.markdown("---")
+
+        # -----------------------------
+        # FINAL PREDICTION
+        # -----------------------------
+        st.subheader("🧾 Final Diagnosis")
+
+        if prediction == 1:
+            st.error("⚠️ Tuberculosis Detected")
+        else:
+            st.success("✅ Normal")
+
+        # Optional: debug info
+        st.caption("ROI is the actual input used by the model for prediction.")
+
+# -----------------------------
+# FOOTER
+# -----------------------------
+st.markdown("---")
+st.caption("AI-CDD • Medical Imaging Pipeline Demo")
