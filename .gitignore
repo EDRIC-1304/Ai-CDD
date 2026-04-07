@@ -165,6 +165,7 @@ venv/
 .DS_Store
 Thumbs.db
 
+data/
 dataset/
 dataset1/
 dataset2/

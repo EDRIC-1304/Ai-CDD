@@ -6,7 +6,7 @@ BASE_DIR = r"G:\Ai-CDD"
 DATASETS = ["dataset1", "dataset2", "dataset3"]
 
 # 🔹 Output dataset
-OUTPUT_DIR = r"G:\Ai-CDD\dataset"
+OUTPUT_DIR = r"G:\Ai-CDD\raw\dataset"
 
 # 🔹 Class normalization
 CLASS_MAP = {
@@ -20,22 +20,24 @@ CLASS_MAP = {
     "TURBERCULOSIS": "TUBERCULOSIS",  # fix typo
 }
 
-# 🔹 Counters for renaming
+# 🔹 Counters per split + class (FIXED)
 counters = {
-    "NORMAL": 0,
-    "TUBERCULOSIS": 0
+    "train": {"NORMAL": 0, "TUBERCULOSIS": 0},
+    "val": {"NORMAL": 0, "TUBERCULOSIS": 0},
+    "test": {"NORMAL": 0, "TUBERCULOSIS": 0},
 }
 
-def get_new_name(class_name):
-    counters[class_name] += 1
+def get_new_name(split, class_name):
+    counters[split][class_name] += 1
     prefix = "normal" if class_name == "NORMAL" else "tb"
-    return f"{prefix}_{counters[class_name]:05d}.png"
+    return f"{prefix}_{counters[split][class_name]:05d}.png"
 
 
 def process_image(src_path, dst_path):
     try:
-        img = Image.open(src_path).convert("RGB")
-        img.save(dst_path, "PNG")
+        with Image.open(src_path) as img:
+            img = img.convert("RGB")
+            img.save(dst_path, "PNG")
     except Exception as e:
         print(f"❌ Error: {src_path} -> {e}")
 
@@ -69,7 +71,7 @@ for dataset in DATASETS:
                 if not os.path.isfile(src_file):
                     continue
 
-                new_name = get_new_name(normalized_class)
+                new_name = get_new_name(split, normalized_class)
                 dst_file = os.path.join(output_class_path, new_name)
 
                 process_image(src_file, dst_file)
