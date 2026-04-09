@@ -49,7 +49,7 @@ def process_split(split):
         output_dir = os.path.join(BASE_OUT, split, class_name)
 
         if not os.path.exists(input_dir):
-            print(f"❌ Missing: {input_dir}")
+            print(f"(xray_mask_processing.py)❌ Missing: {input_dir}")
             continue
 
         os.makedirs(output_dir, exist_ok=True)

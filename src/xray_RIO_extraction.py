@@ -35,7 +35,7 @@ def process_split(split):
         out_dir = os.path.join(BASE_OUT, split, class_name)
 
         if not os.path.exists(img_dir) or not os.path.exists(mask_dir):
-            print(f"❌ Missing: {split}/{class_name}")
+            print(f"(xray_RIO_extraction.py)❌ Missing: {split}/{class_name}")
             continue
 
         os.makedirs(out_dir, exist_ok=True)

@@ -170,6 +170,7 @@ import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 import cv2
+import torch.nn.functional as F
 
 from log import log
 
@@ -254,9 +255,13 @@ class CNN(nn.Module):
             nn.AdaptiveAvgPool2d(1)
         )
 
+    # def forward(self, x):
+    #     x = self.net(x)
+    #     return x.view(x.size(0), -1)
     def forward(self, x):
         x = self.net(x)
-        return x.view(x.size(0), -1)
+        x = x.view(x.size(0), -1)
+        return F.normalize(x, dim=1)  
 
 
 # -----------------------------
@@ -365,9 +370,13 @@ def train():
             emb_q = model(qx)
 
             prototypes = compute_prototypes(emb_s, sy)
+            prototypes = F.normalize(prototypes, dim=1)
+            if _ == 0:  # first episode only
+                print("Proto distance:", torch.norm(prototypes[0] - prototypes[1]).item())
 
             dists = euclidean_dist(emb_q, prototypes)
-            loss = nn.CrossEntropyLoss()(-dists, qy)
+            # loss = nn.CrossEntropyLoss()(-dists, qy)
+            loss = nn.CrossEntropyLoss()(-dists / 0.1, qy)
 
             optimizer.zero_grad()
             loss.backward()
