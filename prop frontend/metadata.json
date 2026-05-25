@@ -1,0 +1,6 @@
+{
+  "name": "Chest Disease Detection System",
+  "description": "An AI-powered clinical diagnostic platform for automated detection of tuberculosis and lung cancer in chest medical imagery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

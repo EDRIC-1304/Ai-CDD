@@ -21,7 +21,9 @@ model = tf.keras.models.load_model(
 # HELPERS
 # ------------------------------------------------
 def keep_largest_components(mask, num_components=2):
+
     num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(mask, connectivity=8)
+
     if num_labels <= 1:
         return mask
 
@@ -29,6 +31,7 @@ def keep_largest_components(mask, num_components=2):
     largest = np.argsort(areas)[-num_components:] + 1
 
     clean = np.zeros_like(mask)
+
     for idx in largest:
         clean[labels == idx] = 255
 
@@ -36,58 +39,109 @@ def keep_largest_components(mask, num_components=2):
 
 
 def fill_holes(mask):
+
     h, w = mask.shape
     flood = mask.copy()
     flood_mask = np.zeros((h + 2, w + 2), np.uint8)
+
     cv2.floodFill(flood, flood_mask, (0, 0), 255)
+
     flood_inv = cv2.bitwise_not(flood)
+
     return mask | flood_inv
+
+
+def smooth_lung_edges(mask):
+
+    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    smooth = np.zeros_like(mask)
+
+    for cnt in contours:
+
+        hull = cv2.convexHull(cnt)
+
+        cv2.drawContours(smooth, [hull], -1, 255, -1)
+
+    return smooth
 
 
 # ------------------------------------------------
 # MAIN PIPELINE
 # ------------------------------------------------
 def xray_process(image):
+
     image = np.array(image)
     original = image.copy()
 
-    # --- Preprocessing (unchanged) ---
+    # -------------------------------
+    # Preprocessing
+    # -------------------------------
     gray = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
+
     equalized = cv2.equalizeHist(gray)
+
     denoised = cv2.medianBlur(equalized, 5)
+
     contrast = cv2.convertScaleAbs(denoised, alpha=1.5, beta=0)
 
     h, w = contrast.shape
 
-    # --- Model inference ---
+    # -------------------------------
+    # MODEL INFERENCE
+    # -------------------------------
     unet_input = cv2.resize(contrast, (IMG_SIZE, IMG_SIZE)) / 255.0
+
     unet_input = unet_input[np.newaxis, ..., np.newaxis]
 
     pred = model.predict(unet_input, verbose=0)[0, :, :, 0]
+
     pred_resized = cv2.resize(pred, (w, h))
 
-    # 🔥 LOWER THRESHOLD (CRITICAL)
     binary_mask = (pred_resized > 0.35).astype(np.uint8) * 255
 
-    # 🔥 CLOSE FIRST (reconnect right lung)
-    kernel_close = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
-    mask = cv2.morphologyEx(binary_mask, cv2.MORPH_CLOSE, kernel_close, iterations=2)
+    # -------------------------------
+    # STRONG CLOSE (reconnect lungs)
+    # -------------------------------
+    kernel_close = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (11, 11))
 
-    # 🔥 FILL BEFORE FILTERING
+    mask = cv2.morphologyEx(binary_mask, cv2.MORPH_CLOSE, kernel_close, iterations=3)
+
+    # -------------------------------
+    # FILL INTERNAL HOLES
+    # -------------------------------
     mask = fill_holes(mask)
 
-    # 🔥 KEEP ONLY TWO LUNGS
-    mask = keep_largest_components(mask, num_components=2)
+    # -------------------------------
+    # KEEP ONLY 2 LUNGS
+    # -------------------------------
+    mask = keep_largest_components(mask, 2)
 
-    # 🔥 VERY LIGHT OPENING (edge cleanup only)
-    kernel_open = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel_open, iterations=1)
+    # -------------------------------
+    # EXPAND EDGES (fix cut lungs)
+    # -------------------------------
+    kernel_dilate = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
 
-    # --- Save ---
+    mask = cv2.dilate(mask, kernel_dilate, iterations=2)
+
+    # -------------------------------
+    # SMOOTH LUNG SHAPE
+    # -------------------------------
+    mask = smooth_lung_edges(mask)
+
+    # -------------------------------
+    # APPLY MASK TO ORIGINAL XRAY
+    # -------------------------------
+    masked_xray = cv2.bitwise_and(original, original, mask=mask)
+
+    # -------------------------------
+    # SAVE OUTPUT
+    # -------------------------------
     output_path = OUTPUT_DIR + "/xray_output.png"
-    cv2.imwrite(output_path, mask)
+
+    cv2.imwrite(output_path, masked_xray)
 
     print("✅ XRAY lung segmentation completed")
     print("Saved to:", output_path)
 
-    return original, mask
+    return original, masked_xray
