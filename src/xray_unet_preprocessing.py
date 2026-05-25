@@ -9,8 +9,21 @@ import torch.nn as nn
 # CONFIG
 # -----------------------------
 IMG_SIZE = 256
-MODEL_PATH = r"models_saved\Unet.pth"
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+MODEL_PATH = r"G:\Ai-CDD\segmentation_checkpoints\final_unet.pth"
+
+DEVICE = torch.device(
+    "cuda" if torch.cuda.is_available() else "cpu"
+)
+
+# -----------------------------
+# DEBUG
+# -----------------------------
+DEBUG_DIR = r"G:\Ai-CDD\src\debug_stage2"
+FAILED_DIR = r"G:\Ai-CDD\src\failed_masks"
+
+os.makedirs(DEBUG_DIR, exist_ok=True)
+os.makedirs(FAILED_DIR, exist_ok=True)
 
 # -----------------------------
 # PATHS
@@ -19,131 +32,337 @@ BASE_IN = r"G:\Ai-CDD\data\preprocessed\stage1"
 BASE_OUT = r"G:\Ai-CDD\data\preprocessed\stage2"
 
 # -----------------------------
-# MODEL
+# DOUBLE CONV BLOCK
 # -----------------------------
-class ConvBlock(nn.Module):
-    def __init__(self, in_c, out_c):
+class DoubleConv(nn.Module):
+
+    def __init__(self, in_channels, out_channels):
         super().__init__()
+
         self.conv = nn.Sequential(
-            nn.Conv2d(in_c, out_c, 3, padding=1),
-            nn.BatchNorm2d(out_c),
-            nn.ReLU(),
-            nn.Conv2d(out_c, out_c, 3, padding=1),
-            nn.BatchNorm2d(out_c),
-            nn.ReLU()
+
+            nn.Conv2d(
+                in_channels,
+                out_channels,
+                kernel_size=3,
+                padding=1
+            ),
+
+            nn.BatchNorm2d(out_channels),
+
+            nn.ReLU(inplace=True),
+
+            nn.Conv2d(
+                out_channels,
+                out_channels,
+                kernel_size=3,
+                padding=1
+            ),
+
+            nn.BatchNorm2d(out_channels),
+
+            nn.ReLU(inplace=True),
         )
 
     def forward(self, x):
         return self.conv(x)
 
-
+# -----------------------------
+# U-NET
+# -----------------------------
 class UNet(nn.Module):
+
     def __init__(self):
         super().__init__()
 
-        self.c1 = ConvBlock(1, 32)
-        self.p1 = nn.MaxPool2d(2)
+        # Encoder
+        self.down1 = DoubleConv(1, 64)
+        self.pool1 = nn.MaxPool2d(2)
 
-        self.c2 = ConvBlock(32, 64)
-        self.p2 = nn.MaxPool2d(2)
+        self.down2 = DoubleConv(64, 128)
+        self.pool2 = nn.MaxPool2d(2)
 
-        self.c3 = ConvBlock(64, 128)
-        self.p3 = nn.MaxPool2d(2)
+        self.down3 = DoubleConv(128, 256)
+        self.pool3 = nn.MaxPool2d(2)
 
-        self.c4 = ConvBlock(128, 256)
-        self.p4 = nn.MaxPool2d(2)
+        self.down4 = DoubleConv(256, 512)
+        self.pool4 = nn.MaxPool2d(2)
 
-        self.bn = ConvBlock(256, 512)
+        # Bottleneck
+        self.bottleneck = DoubleConv(512, 1024)
 
-        self.u1 = nn.ConvTranspose2d(512, 256, 2, stride=2)
-        self.c5 = ConvBlock(512, 256)
+        # Decoder
+        self.up1 = nn.ConvTranspose2d(
+            1024,
+            512,
+            kernel_size=2,
+            stride=2
+        )
 
-        self.u2 = nn.ConvTranspose2d(256, 128, 2, stride=2)
-        self.c6 = ConvBlock(256, 128)
+        self.conv1 = DoubleConv(1024, 512)
 
-        self.u3 = nn.ConvTranspose2d(128, 64, 2, stride=2)
-        self.c7 = ConvBlock(128, 64)
+        self.up2 = nn.ConvTranspose2d(
+            512,
+            256,
+            kernel_size=2,
+            stride=2
+        )
 
-        self.u4 = nn.ConvTranspose2d(64, 32, 2, stride=2)
-        self.c8 = ConvBlock(64, 32)
+        self.conv2 = DoubleConv(512, 256)
 
-        self.out = nn.Conv2d(32, 1, 1)
+        self.up3 = nn.ConvTranspose2d(
+            256,
+            128,
+            kernel_size=2,
+            stride=2
+        )
+
+        self.conv3 = DoubleConv(256, 128)
+
+        self.up4 = nn.ConvTranspose2d(
+            128,
+            64,
+            kernel_size=2,
+            stride=2
+        )
+
+        self.conv4 = DoubleConv(128, 64)
+
+        # Output
+        self.out = nn.Conv2d(
+            64,
+            1,
+            kernel_size=1
+        )
 
     def forward(self, x):
-        c1 = self.c1(x)
-        c2 = self.c2(self.p1(c1))
-        c3 = self.c3(self.p2(c2))
-        c4 = self.c4(self.p3(c3))
 
-        bn = self.bn(self.p4(c4))
+        # Encoder
+        d1 = self.down1(x)
+        p1 = self.pool1(d1)
 
-        u1 = self.u1(bn)
-        u1 = torch.cat([u1, c4], dim=1)
-        c5 = self.c5(u1)
+        d2 = self.down2(p1)
+        p2 = self.pool2(d2)
 
-        u2 = self.u2(c5)
-        u2 = torch.cat([u2, c3], dim=1)
-        c6 = self.c6(u2)
+        d3 = self.down3(p2)
+        p3 = self.pool3(d3)
 
-        u3 = self.u3(c6)
-        u3 = torch.cat([u3, c2], dim=1)
-        c7 = self.c7(u3)
+        d4 = self.down4(p3)
+        p4 = self.pool4(d4)
 
-        u4 = self.u4(c7)
-        u4 = torch.cat([u4, c1], dim=1)
-        c8 = self.c8(u4)
+        # Bottleneck
+        bn = self.bottleneck(p4)
 
-        return torch.sigmoid(self.out(c8))
+        # Decoder
+        u1 = self.up1(bn)
+        u1 = torch.cat([u1, d4], dim=1)
+        u1 = self.conv1(u1)
 
+        u2 = self.up2(u1)
+        u2 = torch.cat([u2, d3], dim=1)
+        u2 = self.conv2(u2)
+
+        u3 = self.up3(u2)
+        u3 = torch.cat([u3, d2], dim=1)
+        u3 = self.conv3(u3)
+
+        u4 = self.up4(u3)
+        u4 = torch.cat([u4, d1], dim=1)
+        u4 = self.conv4(u4)
+
+        # IMPORTANT:
+        # NO SIGMOID HERE
+        return self.out(u4)
 
 # -----------------------------
 # LOAD MODEL
 # -----------------------------
 model = UNet().to(DEVICE)
-state_dict = torch.load(MODEL_PATH, map_location=DEVICE)
+
+state_dict = torch.load(
+    MODEL_PATH,
+    map_location=DEVICE
+)
+
 model.load_state_dict(state_dict)
+
 model.eval()
+
+print("✅ UNet model loaded successfully")
 
 # -----------------------------
 # PROCESS FUNCTION
 # -----------------------------
 def process_split(split):
+
     for class_name in ["NORMAL", "TUBERCULOSIS"]:
-        input_dir = os.path.join(BASE_IN, split, class_name)
-        output_dir = os.path.join(BASE_OUT, split, class_name)
+
+        input_dir = os.path.join(
+            BASE_IN,
+            split,
+            class_name
+        )
+
+        output_dir = os.path.join(
+            BASE_OUT,
+            split,
+            class_name
+        )
 
         if not os.path.exists(input_dir):
-            print(f"(xray_unet_preprocessing.py)❌ Missing: {input_dir}")
+            print(f"❌ Missing: {input_dir}")
             continue
 
-        os.makedirs(output_dir, exist_ok=True)
+        os.makedirs(
+            output_dir,
+            exist_ok=True
+        )
 
-        files = os.listdir(input_dir)
+        valid_ext = (
+            ".png",
+            ".jpg",
+            ".jpeg",
+            ".bmp"
+        )
 
-        for file in tqdm(files, desc=f"{split}/{class_name}"):
-            path = os.path.join(input_dir, file)
+        files = [
+            f for f in os.listdir(input_dir)
+            if f.lower().endswith(valid_ext)
+        ]
 
-            img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+        processed_count = 0
+        failed_count = 0
+
+        for i, file in enumerate(
+            tqdm(files, desc=f"{split}/{class_name}")
+        ):
+
+            path = os.path.join(
+                input_dir,
+                file
+            )
+
+            # -------------------------
+            # READ IMAGE
+            # -------------------------
+            img = cv2.imread(
+                path,
+                cv2.IMREAD_GRAYSCALE
+            )
+
             if img is None:
+                failed_count += 1
                 continue
 
-            img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
-            img = img.astype(np.float32) / 255.0
+            # -------------------------
+            # RESIZE
+            # -------------------------
+            img = cv2.resize(
+                img,
+                (IMG_SIZE, IMG_SIZE)
+            )
 
-            tensor = torch.tensor(img).unsqueeze(0).unsqueeze(0).to(DEVICE)
+            # -------------------------
+            # NORMALIZE
+            # -------------------------
+            img_norm = (
+                img.astype(np.float32) / 255.0
+            )
 
+            # -------------------------
+            # TO TENSOR
+            # -------------------------
+            tensor = torch.tensor(
+                img_norm,
+                dtype=torch.float32
+            ).unsqueeze(0).unsqueeze(0).to(DEVICE)
+
+            # -------------------------
+            # PREDICT
+            # -------------------------
             with torch.no_grad():
-                pred = model(tensor)[0, 0].cpu().numpy()
 
-            save = (pred * 255).astype(np.uint8)
+                pred = model(tensor)
 
-            out_path = os.path.join(output_dir, file)  # keep same name
-            cv2.imwrite(out_path, save)
+                # APPLY SIGMOID HERE
+                pred = torch.sigmoid(pred)
+
+                pred = pred[0, 0].cpu().numpy()
+
+            # -------------------------
+            # BINARIZE MASK
+            # -------------------------
+            binary_mask = (
+                pred > 0.5
+            ).astype(np.uint8) * 255
+
+            # -------------------------
+            # CHECK FAILED MASK
+            # -------------------------
+            white_pixels = np.sum(binary_mask > 0)
+
+            if white_pixels < 500:
+
+                failed_count += 1
+
+                failed_path = os.path.join(
+                    FAILED_DIR,
+                    f"{split}_{class_name}_{file}"
+                )
+
+                cv2.imwrite(
+                    failed_path,
+                    binary_mask
+                )
+
+            # -------------------------
+            # SAVE MASK
+            # -------------------------
+            out_path = os.path.join(
+                output_dir,
+                file
+            )
+
+            cv2.imwrite(
+                out_path,
+                binary_mask
+            )
+
+            processed_count += 1
+
+            # -------------------------
+            # DEBUG SAVE
+            # -------------------------
+            if i < 20:
+
+                combined = np.hstack([
+                    img,
+                    binary_mask
+                ])
+
+                debug_path = os.path.join(
+                    DEBUG_DIR,
+                    f"{split}_{class_name}_{i}.png"
+                )
+
+                cv2.imwrite(
+                    debug_path,
+                    combined
+                )
+
+        # -------------------------
+        # SUMMARY
+        # -------------------------
+        print(f"\n✅ {split}/{class_name}")
+        print(f"✔ Processed: {processed_count}")
+        print(f"⚠️ Weak Masks: {failed_count}")
+        print("-" * 40)
 
 # -----------------------------
 # RUN
 # -----------------------------
-for split in ["train", "val", "test"]:
-    process_split(split)
+# for split in ["train", "val", "test"]:
 
-print("\n🎯 Stage 2 preprocessing complete")
+#     process_split(split)
+
+# print("\n🎯 Stage 2 preprocessing complete")

@@ -1,42 +1,80 @@
+
 # import os
-# import random
+# import csv
 # import numpy as np
+
 # from PIL import Image
-# from sklearn.metrics import confusion_matrix, classification_report
+
+# from sklearn.metrics import (
+#     confusion_matrix,
+#     classification_report,
+#     accuracy_score
+# )
+
 # import matplotlib.pyplot as plt
 # import seaborn as sns
 
 # from src.utils.xray_classifier import xray_full_pipeline
 
-
 # # -----------------------------
 # # CONFIG
 # # -----------------------------
-# DATASET_PATH = "dataset2/test"
-# CLASS_NAMES = ["NORMAL", "TUBERCULOSIS"]
+# BASE_DIR = os.path.dirname(
+#     os.path.abspath(__file__)
+# )
 
-# SAMPLES_PER_CLASS = 20
-# THRESHOLD = 0.7   # 🔥 try 0.6 / 0.7 / 0.8
+# DATASET_PATH = os.path.join(
+#     BASE_DIR,
+#     "data",
+#     "raw",
+#     "dataset",
+#     "test"
+# )
 
+# CLASS_NAMES = [
+#     "NORMAL",
+#     "TUBERCULOSIS"
+# ]
+
+# VALID_EXT = (
+#     ".png",
+#     ".jpg",
+#     ".jpeg",
+#     ".bmp"
+# )
 
 # # -----------------------------
-# # LOAD DATA
+# # LOAD DATASET
 # # -----------------------------
 # def load_dataset(folder_path):
+
 #     image_paths = []
 #     labels = []
 
 #     for label, class_name in enumerate(CLASS_NAMES):
-#         class_folder = os.path.join(folder_path, class_name)
 
-#         files = [
+#         class_folder = os.path.join(
+#             folder_path,
+#             class_name
+#         )
+
+#         if not os.path.exists(class_folder):
+
+#             print(f"❌ Missing: {class_folder}")
+
+#             continue
+
+#         files = sorted([
 #             f for f in os.listdir(class_folder)
-#             if f.lower().endswith((".png", ".jpg", ".jpeg"))
-#         ]
+#             if f.lower().endswith(VALID_EXT)
+#         ])
 
-#         # ✅ NO SAMPLING — use all files
 #         for file in files:
-#             image_paths.append(os.path.join(class_folder, file))
+
+#             image_paths.append(
+#                 os.path.join(class_folder, file)
+#             )
+
 #             labels.append(label)
 
 #     return image_paths, labels
@@ -45,59 +83,148 @@
 # # RUN INFERENCE
 # # -----------------------------
 # def run_inference(image_paths, y_true):
+
 #     y_pred = []
 #     y_true_clean = []
 
 #     normal_conf = []
 #     tb_conf = []
 
-#     for img_path, label in zip(image_paths, y_true):
+#     all_conf = []
+
+#     log_rows = []
+
+#     processed = 0
+#     failed = 0
+
+#     for i, (img_path, label) in enumerate(
+#         zip(image_paths, y_true)
+#     ):
+
 #         try:
-#             image = Image.open(img_path).convert("RGB")
 
-#             _, _, _, _, _, pred, conf = xray_full_pipeline(image)
+#             print(
+#                 f"[{i+1}/{len(image_paths)}] "
+#                 f"Processing..."
+#             )
 
-#             # 🔥 THRESHOLD FIX
-#             pred = 1 if conf > THRESHOLD else 0
+#             # -------------------------
+#             # LOAD AS GRAYSCALE
+#             # IMPORTANT
+#             # -------------------------
+#             image = Image.open(
+#                 img_path
+#             ).convert("L")
 
-#             # ⚠️ Uncomment if predictions seem flipped
-#             # pred = 1 - pred
+#             # -------------------------
+#             # FULL PIPELINE
+#             # -------------------------
+#             results = xray_full_pipeline(image)
+
+#             # -------------------------
+#             # SAFETY CHECK
+#             # -------------------------
+#             if results is None:
+#                 failed += 1
+#                 continue
+
+#             _, _, _, _, _, pred_raw, conf = results
+
+#             pred = int(pred_raw)
+
+#             conf = float(conf)
 
 #             y_pred.append(pred)
+
 #             y_true_clean.append(label)
 
-#             # track confidence
+#             all_conf.append(conf)
+
 #             if label == 0:
 #                 normal_conf.append(conf)
 #             else:
 #                 tb_conf.append(conf)
 
-#             print(f"{os.path.basename(img_path)} -> Pred: {pred} | Conf: {conf:.3f}")
+#             is_correct = (pred == label)
 
-#             # 🔴 WRONG PREDICTIONS
-#             if pred != label:
-#                 print(f"❌ WRONG: {img_path} | Pred: {pred} | True: {label}")
+#             log_rows.append({
+#                 "image": img_path,
+#                 "true_label": CLASS_NAMES[label],
+#                 "pred_label": CLASS_NAMES[pred],
+#                 "confidence": round(conf, 4),
+#                 "correct": is_correct
+#             })
+
+#             if not is_correct:
+
+#                 print(
+#                     f"❌ WRONG | "
+#                     f"Pred: {CLASS_NAMES[pred]} | "
+#                     f"True: {CLASS_NAMES[label]} | "
+#                     f"Conf: {conf:.4f}"
+#                 )
+
+#             processed += 1
 
 #         except Exception as e:
-#             print(f"Error processing {img_path}: {e}")
+
+#             failed += 1
+
+#             print(f"\n❌ Error processing:")
+#             print(img_path)
+#             print(e)
 
 #     # -----------------------------
-#     # CONFIDENCE STATS
+#     # SAVE LOG
 #     # -----------------------------
-#     print("\n--- Confidence Stats ---")
-#     print(f"Avg NORMAL confidence: {np.mean(normal_conf):.3f}")
-#     print(f"Avg TB confidence: {np.mean(tb_conf):.3f}")
+#     if len(log_rows) > 0:
 
-#     return y_true_clean, y_pred
+#         log_file = "inference_log.csv"
 
+#         with open(
+#             log_file,
+#             mode="w",
+#             newline="",
+#             encoding="utf-8"
+#         ) as file:
+
+#             writer = csv.DictWriter(
+#                 file,
+#                 fieldnames=log_rows[0].keys()
+#             )
+
+#             writer.writeheader()
+
+#             writer.writerows(log_rows)
+
+#         print(f"\n📝 Log saved:")
+#         print(log_file)
+
+#     print("\n-----------------------------")
+#     print(f"✔ Processed: {processed}")
+#     print(f"❌ Failed: {failed}")
+#     print("-----------------------------")
+
+#     return (
+#         y_true_clean,
+#         y_pred,
+#         normal_conf,
+#         tb_conf,
+#         all_conf
+#     )
 
 # # -----------------------------
 # # CONFUSION MATRIX
 # # -----------------------------
 # def plot_confusion_matrix(y_true, y_pred):
-#     cm = confusion_matrix(y_true, y_pred)
+
+#     cm = confusion_matrix(
+#         y_true,
+#         y_pred
+#     )
 
 #     plt.figure(figsize=(6, 5))
+
 #     sns.heatmap(
 #         cm,
 #         annot=True,
@@ -108,175 +235,480 @@
 #     )
 
 #     plt.xlabel("Predicted")
+
 #     plt.ylabel("Actual")
+
 #     plt.title("Confusion Matrix")
 
-#     plt.savefig("confusion_matrix.png")
-#     print("\n📊 Confusion matrix saved as confusion_matrix.png")
+#     plt.tight_layout()
 
+#     plt.savefig(
+#         "confusion_matrix.png"
+#     )
+
+#     print(
+#         "📊 Saved: confusion_matrix.png"
+#     )
+
+# # -----------------------------
+# # CONFIDENCE DISTRIBUTION
+# # -----------------------------
+# def plot_confidence_distribution(
+#     normal_conf,
+#     tb_conf
+# ):
+
+#     plt.figure(figsize=(7, 5))
+
+#     plt.hist(
+#         normal_conf,
+#         bins=30,
+#         alpha=0.5,
+#         label="NORMAL"
+#     )
+
+#     plt.hist(
+#         tb_conf,
+#         bins=30,
+#         alpha=0.5,
+#         label="TB"
+#     )
+
+#     plt.legend()
+
+#     plt.title(
+#         "Confidence Distribution"
+#     )
+
+#     plt.xlabel("Confidence")
+
+#     plt.ylabel("Count")
+
+#     plt.tight_layout()
+
+#     plt.savefig(
+#         "confidence_distribution.png"
+#     )
+
+#     print(
+#         "📈 Saved: confidence_distribution.png"
+#     )
 
 # # -----------------------------
 # # MAIN
 # # -----------------------------
 # if __name__ == "__main__":
-#     print("Loading test dataset...")
-#     image_paths, y_true = load_dataset(DATASET_PATH)
 
-#     print(f"Total test images: {len(image_paths)}")
+#     print("Loading dataset...")
+
+#     image_paths, y_true = load_dataset(
+#         DATASET_PATH
+#     )
+
+#     print(f"Total images: {len(image_paths)}")
 
 #     print("\nRunning inference...\n")
-#     y_true, y_pred = run_inference(image_paths, y_true)
+
+#     (
+#         y_true,
+#         y_pred,
+#         normal_conf,
+#         tb_conf,
+#         all_conf
+#     ) = run_inference(
+#         image_paths,
+#         y_true
+#     )
+
+#     # -----------------------------
+#     # SAFETY
+#     # -----------------------------
+#     if len(y_pred) == 0:
+
+#         print("\n❌ No predictions generated")
+
+#         exit()
 
 #     # -----------------------------
 #     # RESULTS
 #     # -----------------------------
-#     print("\nClassification Report:")
-#     print(classification_report(y_true, y_pred, target_names=CLASS_NAMES))
+#     print("\n=============================")
+#     print("FINAL RESULTS")
+#     print("=============================")
 
-#     print("\nConfusion Matrix:")
-#     print(confusion_matrix(y_true, y_pred))
+#     acc = accuracy_score(
+#         y_true,
+#         y_pred
+#     )
 
-#     plot_confusion_matrix(y_true, y_pred)
+#     print(f"\nAccuracy: {acc:.4f}")
+
+#     print("\nClassification Report:\n")
+
+#     print(
+#         classification_report(
+#             y_true,
+#             y_pred,
+#             target_names=CLASS_NAMES,
+#             digits=4
+#         )
+#     )
+
+#     print("\nConfusion Matrix:\n")
+
+#     print(
+#         confusion_matrix(
+#             y_true,
+#             y_pred
+#         )
+#     )
+
+#     # -----------------------------
+#     # CONFIDENCE STATS
+#     # -----------------------------
+#     print("\nConfidence Statistics")
+
+#     print(
+#         f"Mean Confidence: "
+#         f"{np.mean(all_conf):.4f}"
+#     )
+
+#     print(
+#         f"Min Confidence: "
+#         f"{np.min(all_conf):.4f}"
+#     )
+
+#     print(
+#         f"Max Confidence: "
+#         f"{np.max(all_conf):.4f}"
+#     )
+
+#     # -----------------------------
+#     # PLOTS
+#     # -----------------------------
+#     plot_confusion_matrix(
+#         y_true,
+#         y_pred
+#     )
+
+#     plot_confidence_distribution(
+#         normal_conf,
+#         tb_conf
+#     )
+
+#     print("\n✅ Inference complete")
+
+
+
+
+
+
 
 
 
 
 import os
+import csv
 import numpy as np
+
 from PIL import Image
-from sklearn.metrics import confusion_matrix, classification_report
+
+from sklearn.metrics import (
+    confusion_matrix,
+    classification_report,
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score
+)
+
 import matplotlib.pyplot as plt
 import seaborn as sns
-import csv
 
 from src.utils.xray_classifier import xray_full_pipeline
 
-
-# -----------------------------
+# =========================================================
 # CONFIG
-# -----------------------------
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATASET_PATH = os.path.join(BASE_DIR, "data", "raw", "dataset", "test")
-CLASS_NAMES = ["NORMAL", "TUBERCULOSIS"]
+# =========================================================
+BASE_DIR = os.path.dirname(
+    os.path.abspath(__file__)
+)
 
-# initial threshold (will be optimized later)
-THRESHOLD = 0.5
+DATASET_PATH = os.path.join(
+    BASE_DIR,
+    "data",
+    "raw",
+    "dataset",
+    "test"
+)
 
+CLASS_NAMES = [
+    "NORMAL",
+    "TUBERCULOSIS"
+]
 
-# -----------------------------
-# LOAD DATA (ALL IMAGES)
-# -----------------------------
+VALID_EXT = (
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".bmp"
+)
+
+# =========================================================
+# LOAD DATASET
+# =========================================================
 def load_dataset(folder_path):
+
     image_paths = []
     labels = []
 
-    for label, class_name in enumerate(CLASS_NAMES):
-        class_folder = os.path.join(folder_path, class_name)
+    for label, class_name in enumerate(
+        CLASS_NAMES
+    ):
 
-        files = [
-            f for f in os.listdir(class_folder)
-            if f.lower().endswith((".png", ".jpg", ".jpeg"))
-        ]
+        class_folder = os.path.join(
+            folder_path,
+            class_name
+        )
+
+        if not os.path.exists(
+            class_folder
+        ):
+
+            print(
+                f"❌ Missing: {class_folder}"
+            )
+
+            continue
+
+        files = sorted([
+
+            f for f in os.listdir(
+                class_folder
+            )
+
+            if f.lower().endswith(
+                VALID_EXT
+            )
+        ])
 
         for file in files:
-            image_paths.append(os.path.join(class_folder, file))
+
+            image_paths.append(
+                os.path.join(
+                    class_folder,
+                    file
+                )
+            )
+
             labels.append(label)
 
     return image_paths, labels
 
-
-# -----------------------------
+# =========================================================
 # RUN INFERENCE
-# -----------------------------
-def run_inference(image_paths, y_true):
+# =========================================================
+def run_inference(
+    image_paths,
+    y_true
+):
+
     y_pred = []
     y_true_clean = []
 
     normal_conf = []
     tb_conf = []
+
     all_conf = []
 
     log_rows = []
 
-    for i, (img_path, label) in enumerate(zip(image_paths, y_true)):
+    processed = 0
+    failed = 0
+
+    for i, (
+        img_path,
+        label
+    ) in enumerate(
+        zip(image_paths, y_true)
+    ):
+
         try:
-            print(f"[{i+1}/{len(image_paths)}] Processing...")
 
-            image = Image.open(img_path).convert("RGB")
+            print(
+                f"[{i+1}/{len(image_paths)}] "
+                f"Processing..."
+            )
 
-            _, _, _, _, _, pred_raw, conf = xray_full_pipeline(image)
+            # ---------------------------------
+            # LOAD IMAGE
+            # ---------------------------------
+            image = Image.open(
+                img_path
+            ).convert("L")
+
+            # ---------------------------------
+            # FULL PIPELINE
+            # ---------------------------------
+            results = xray_full_pipeline(
+                image
+            )
+
+            if results is None:
+
+                failed += 1
+
+                continue
+
+            # ---------------------------------
+            # EXPECTED RETURNS
+            # ---------------------------------
+            (
+                _,
+                _,
+                _,
+                _,
+                _,
+                pred_raw,
+                conf
+            ) = results
+
+            pred = int(pred_raw)
+
+            conf = float(conf)
+
+            conf = max(
+                0.0,
+                min(conf, 1.0)
+            )
+
+            y_pred.append(pred)
+
+            y_true_clean.append(
+                label
+            )
 
             all_conf.append(conf)
 
-            # apply threshold
-            pred = 1 if conf > THRESHOLD else 0
-
-            y_pred.append(pred)
-            y_true_clean.append(label)
-
-            # track confidence
-            if label == 0:
+            if pred == 0:
                 normal_conf.append(conf)
+
             else:
                 tb_conf.append(conf)
 
-            is_correct = (pred == label)
+            is_correct = (
+                pred == label
+            )
 
-            # ✅ LOG ROW
             log_rows.append({
+
                 "image": img_path,
-                "true_label": CLASS_NAMES[label],
-                "pred_label": CLASS_NAMES[pred],
-                "confidence": round(conf, 4),
-                "correct": is_correct
+
+                "true_label":
+                CLASS_NAMES[label],
+
+                "pred_label":
+                CLASS_NAMES[pred],
+
+                "confidence":
+                round(conf, 4),
+
+                "correct":
+                is_correct
             })
 
-            # print wrong predictions
+            # ---------------------------------
+            # WRONG PREDICTION
+            # ---------------------------------
             if not is_correct:
-                print(f"❌ WRONG: {img_path} | Pred: {pred} | True: {label} | Conf: {conf:.3f}")
+
+                print(
+                    f"❌ WRONG | "
+                    f"Pred: {CLASS_NAMES[pred]} | "
+                    f"True: {CLASS_NAMES[label]} | "
+                    f"Conf: {conf:.4f}"
+                )
+
+            processed += 1
 
         except Exception as e:
-            print(f"Error processing {img_path}: {e}")
 
-    # -----------------------------
-    # SAVE LOG FILE
-    # -----------------------------
-    log_file = "inference_log.csv"
-    with open(log_file, mode="w", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=log_rows[0].keys())
-        writer.writeheader()
-        writer.writerows(log_rows)
+            failed += 1
 
-    print(f"\n📝 Inference log saved as: {log_file}")
+            print("\n❌ Error processing")
 
-    return y_true_clean, y_pred, normal_conf, tb_conf, all_conf
+            print(img_path)
 
-# -----------------------------
-# FIND BEST THRESHOLD
-# -----------------------------
-def find_best_threshold(y_true, confidences):
-    best_acc = 0
-    best_thresh = 0.5
+            print(e)
 
-    for t in np.arange(0.1, 0.9, 0.05):
-        preds = [1 if c > t else 0 for c in confidences]
-        acc = np.mean(np.array(preds) == np.array(y_true))
+    # =====================================================
+    # SAVE LOG
+    # =====================================================
+    if len(log_rows) > 0:
 
-        if acc > best_acc:
-            best_acc = acc
-            best_thresh = t
+        log_file = (
+            "inference_log.csv"
+        )
 
-    print(f"\n🔥 Best Threshold: {best_thresh:.2f} | Accuracy: {best_acc:.3f}")
-    return best_thresh
+        with open(
+            log_file,
+            mode="w",
+            newline="",
+            encoding="utf-8"
+        ) as file:
 
+            writer = csv.DictWriter(
+                file,
+                fieldnames=log_rows[0].keys()
+            )
 
-# -----------------------------
+            writer.writeheader()
+
+            writer.writerows(
+                log_rows
+            )
+
+        print(
+            f"\n📝 Log saved:"
+        )
+
+        print(log_file)
+
+    print("\n-------------------")
+
+    print(
+        f"✔ Processed: {processed}"
+    )
+
+    print(
+        f"❌ Failed: {failed}"
+    )
+
+    print("-------------------")
+
+    return (
+        y_true_clean,
+        y_pred,
+        normal_conf,
+        tb_conf,
+        all_conf
+    )
+
+# =========================================================
 # CONFUSION MATRIX
-# -----------------------------
-def plot_confusion_matrix(y_true, y_pred):
-    cm = confusion_matrix(y_true, y_pred)
+# =========================================================
+def plot_confusion_matrix(
+    y_true,
+    y_pred
+):
+
+    cm = confusion_matrix(
+        y_true,
+        y_pred
+    )
 
     plt.figure(figsize=(6, 5))
+
     sns.heatmap(
         cm,
         annot=True,
@@ -287,64 +719,261 @@ def plot_confusion_matrix(y_true, y_pred):
     )
 
     plt.xlabel("Predicted")
+
     plt.ylabel("Actual")
+
     plt.title("Confusion Matrix")
 
-    plt.savefig("confusion_matrix.png")
-    print("📊 Confusion matrix saved as confusion_matrix.png")
+    plt.tight_layout()
 
+    plt.savefig(
+        "confusion_matrix.png"
+    )
 
-# -----------------------------
+    print(
+        "📊 Saved: confusion_matrix.png"
+    )
+
+# =========================================================
 # CONFIDENCE DISTRIBUTION
-# -----------------------------
-def plot_confidence_distribution(normal_conf, tb_conf):
-    plt.figure()
+# =========================================================
+def plot_confidence_distribution(
+    normal_conf,
+    tb_conf
+):
 
-    plt.hist(normal_conf, bins=30, alpha=0.5, label="NORMAL")
-    plt.hist(tb_conf, bins=30, alpha=0.5, label="TB")
+    plt.figure(figsize=(7, 5))
+
+    plt.hist(
+        normal_conf,
+        bins=30,
+        alpha=0.5,
+        label="NORMAL"
+    )
+
+    plt.hist(
+        tb_conf,
+        bins=30,
+        alpha=0.5,
+        label="TB"
+    )
 
     plt.legend()
-    plt.title("Confidence Distribution")
+
+    plt.title(
+        "Confidence Distribution"
+    )
+
     plt.xlabel("Confidence")
+
     plt.ylabel("Count")
 
-    plt.savefig("confidence_distribution.png")
-    print("📈 Confidence distribution saved as confidence_distribution.png")
+    plt.tight_layout()
 
+    plt.savefig(
+        "confidence_distribution.png"
+    )
 
-# -----------------------------
+    print(
+        "📈 Saved: confidence_distribution.png"
+    )
+
+# =========================================================
 # MAIN
-# -----------------------------
+# =========================================================
 if __name__ == "__main__":
-    print("Loading dataset...")
-    image_paths, y_true = load_dataset(DATASET_PATH)
 
-    print(f"Total images: {len(image_paths)}")
+    print(
+        "Loading dataset..."
+    )
 
-    print("\nRunning inference...\n")
-    y_true, y_pred, normal_conf, tb_conf, all_conf = run_inference(image_paths, y_true)
+    image_paths, y_true = (
+        load_dataset(
+            DATASET_PATH
+        )
+    )
 
-    # -----------------------------
-    # FIND BEST THRESHOLD
-    # -----------------------------
-    best_threshold = find_best_threshold(y_true, all_conf)
+    print(
+        f"Total images: {len(image_paths)}"
+    )
 
-    # apply best threshold
-    y_pred_best = [1 if c > best_threshold else 0 for c in all_conf]
+    print(
+        "\nRunning inference...\n"
+    )
 
-    # -----------------------------
+    (
+        y_true,
+        y_pred,
+        normal_conf,
+        tb_conf,
+        all_conf
+
+    ) = run_inference(
+        image_paths,
+        y_true
+    )
+
+    # =====================================================
+    # SAFETY
+    # =====================================================
+    if len(y_pred) == 0:
+
+        print(
+            "\n❌ No predictions generated"
+        )
+
+        exit()
+
+    # =====================================================
+    # METRICS
+    # =====================================================
+    acc = accuracy_score(
+        y_true,
+        y_pred
+    )
+
+    precision = precision_score(
+        y_true,
+        y_pred,
+        zero_division=0
+    )
+
+    recall = recall_score(
+        y_true,
+        y_pred,
+        zero_division=0
+    )
+
+    f1 = f1_score(
+        y_true,
+        y_pred,
+        zero_division=0
+    )
+
+    cm = confusion_matrix(
+        y_true,
+        y_pred
+    )
+
+    tn, fp, fn, tp = cm.ravel()
+
+    specificity = tn / (
+        tn + fp + 1e-8
+    )
+
+    sensitivity = tp / (
+        tp + fn + 1e-8
+    )
+
+    # =====================================================
     # RESULTS
-    # -----------------------------
-    print("\n--- FINAL RESULTS (BEST THRESHOLD) ---")
+    # =====================================================
+    print("\n====================")
+    print("FINAL RESULTS")
+    print("====================")
 
-    print("\nClassification Report:")
-    print(classification_report(y_true, y_pred_best, target_names=CLASS_NAMES))
+    print(
+        f"\nAccuracy      : {acc:.4f}"
+    )
 
-    print("\nConfusion Matrix:")
-    print(confusion_matrix(y_true, y_pred_best))
+    print(
+        f"TB Precision  : {precision:.4f}"
+    )
 
-    # -----------------------------
+    print(
+        f"TB Recall     : {recall:.4f}"
+    )
+
+    print(
+        f"TB F1 Score   : {f1:.4f}"
+    )
+
+    print(
+        f"Specificity   : {specificity:.4f}"
+    )
+
+    print(
+        f"Sensitivity   : {sensitivity:.4f}"
+    )
+
+    print(
+        "\nClassification Report:\n"
+    )
+
+    print(
+        classification_report(
+            y_true,
+            y_pred,
+            target_names=CLASS_NAMES,
+            digits=4,
+            zero_division=0
+        )
+    )
+
+    print(
+        "\nConfusion Matrix:\n"
+    )
+
+    print(cm)
+
+    # =====================================================
+    # PREDICTION DISTRIBUTION
+    # =====================================================
+    normal_pred = np.sum(
+        np.array(y_pred) == 0
+    )
+
+    tb_pred = np.sum(
+        np.array(y_pred) == 1
+    )
+
+    print(
+        "\nPrediction Distribution"
+    )
+
+    print(
+        f"NORMAL Predictions : {normal_pred}"
+    )
+
+    print(
+        f"TB Predictions     : {tb_pred}"
+    )
+
+    # =====================================================
+    # CONFIDENCE STATS
+    # =====================================================
+    print(
+        "\nConfidence Statistics"
+    )
+
+    print(
+        f"Mean Confidence: "
+        f"{np.mean(all_conf):.4f}"
+    )
+
+    print(
+        f"Min Confidence: "
+        f"{np.min(all_conf):.4f}"
+    )
+
+    print(
+        f"Max Confidence: "
+        f"{np.max(all_conf):.4f}"
+    )
+
+    # =====================================================
     # PLOTS
-    # -----------------------------
-    plot_confusion_matrix(y_true, y_pred_best)
-    plot_confidence_distribution(normal_conf, tb_conf)
+    # =====================================================
+    plot_confusion_matrix(
+        y_true,
+        y_pred
+    )
+
+    plot_confidence_distribution(
+        normal_conf,
+        tb_conf
+    )
+
+    print(
+        "\n✅ Inference complete"
+    )

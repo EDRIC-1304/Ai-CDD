@@ -1,81 +1,197 @@
 import os
+import warnings
+
+# ---------------------------------
+# SUPPRESS WARNINGS
+# ---------------------------------
+os.environ["PYTHONWARNINGS"] = "ignore"
+warnings.filterwarnings("ignore")
+
 import cv2
 import numpy as np
 from tqdm import tqdm
 
-# -----------------------------
+# ---------------------------------
 # PATHS
-# -----------------------------
-# BASE_IN = r"G:\Ai-CDD\data\raw\dataset"
-# BASE_OUT = r"G:\Ai-CDD\data\preprocessed\stage1"
+# ---------------------------------
+BASE_IN = r"data/raw/dataset"
+BASE_OUT = r"data/preprocessed/stage1"
 
-# -----------------------------
+# ---------------------------------
 # PARAMETERS
-# -----------------------------
+# ---------------------------------
 IMG_SIZE = 256
-clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
 
-# -----------------------------
-# PREPROCESS FUNCTION
-# -----------------------------
+clahe = cv2.createCLAHE(
+    clipLimit=2.0,
+    tileGridSize=(8, 8)
+)
+
+# ---------------------------------
+# IMAGE PREPROCESS FUNCTION
+# ---------------------------------
 def preprocess_image(img):
-    if len(img.shape) == 3:
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+    # Convert to grayscale
+    if len(img.shape) == 3:
+        img = cv2.cvtColor(
+            img,
+            cv2.COLOR_BGR2GRAY
+        )
+
+    # Resize
+    img = cv2.resize(
+        img,
+        (IMG_SIZE, IMG_SIZE),
+        interpolation=cv2.INTER_AREA
+    )
+
+    # Apply CLAHE
     img = clahe.apply(img)
-    img = img.astype(np.float32) / 255.0
 
     return img
 
-# -----------------------------
+
+# ---------------------------------
 # PROCESS ENTIRE DATASET
-# -----------------------------
-# def process_all():
-#     for split in ["train", "val", "test"]:
-#         split_in = os.path.join(BASE_IN, split)
-#         split_out = os.path.join(BASE_OUT, split)
+# ---------------------------------
+def process_all():
 
-#         for class_name in ["NORMAL", "TUBERCULOSIS"]:
-#             input_dir = os.path.join(split_in, class_name)
-#             output_dir = os.path.join(split_out, class_name)
+    valid_ext = (
+        ".png",
+        ".jpg",
+        ".jpeg",
+        ".bmp"
+    )
 
-#             if not os.path.exists(input_dir):
-#                 print(f"(xray_preprocessing.py)❌ Missing: {input_dir}")
-#                 continue
+    for split in ["train", "val", "test"]:
 
-#             os.makedirs(output_dir, exist_ok=True)
+        split_in = os.path.join(
+            BASE_IN,
+            split
+        )
 
-#             files = os.listdir(input_dir)
+        split_out = os.path.join(
+            BASE_OUT,
+            split
+        )
 
-#             count, failed = 0, 0
+        for class_name in [
+            "NORMAL",
+            "TUBERCULOSIS"
+        ]:
 
-#             for file in tqdm(files, desc=f"{split}/{class_name}"):
-#                 input_path = os.path.join(input_dir, file)
+            # ---------------------------------
+            # INPUT / OUTPUT PATHS
+            # ---------------------------------
+            input_dir = os.path.join(
+                split_in,
+                class_name
+            )
 
-#                 img = cv2.imread(input_path)
-#                 if img is None:
-#                     failed += 1
-#                     continue
+            output_dir = os.path.join(
+                split_out,
+                class_name
+            )
 
-#                 processed = preprocess_image(img)
-#                 save_img = (processed * 255).astype(np.uint8)
+            # ---------------------------------
+            # CHECK INPUT EXISTS
+            # ---------------------------------
+            if not os.path.exists(input_dir):
+                print(f"❌ Missing: {input_dir}")
+                continue
 
-#                 # keep same filename (no need to rename again)
-#                 output_path = os.path.join(output_dir, file)
+            # ---------------------------------
+            # CREATE OUTPUT DIR
+            # ---------------------------------
+            os.makedirs(
+                output_dir,
+                exist_ok=True
+            )
 
-#                 if not cv2.imwrite(output_path, save_img):
-#                     failed += 1
-#                     continue
+            # ---------------------------------
+            # GET VALID FILES
+            # ---------------------------------
+            files = [
+                f for f in os.listdir(input_dir)
+                if f.lower().endswith(valid_ext)
+            ]
 
-#                 count += 1
+            count = 0
+            failed = 0
 
-#             print(f"\n✅ {split}/{class_name}")
-#             print(f"✔ Processed: {count}")
-#             print(f"❌ Failed: {failed}")
-#             print("-" * 40)
+            # ---------------------------------
+            # PROCESS IMAGES
+            # ---------------------------------
+            progress_bar = tqdm(
+                files,
+                desc=f"{split}/{class_name}",
+                ncols=100
+            )
 
-# # -----------------------------
-# # RUN
-# # -----------------------------
-# process_all()
+            for file in progress_bar:
+
+                input_path = os.path.join(
+                    input_dir,
+                    file
+                )
+
+                try:
+                    # ---------------------------------
+                    # READ IMAGE
+                    # ---------------------------------
+                    img = cv2.imread(
+                        input_path,
+                        cv2.IMREAD_GRAYSCALE
+                    )
+
+                    if img is None:
+                        failed += 1
+                        continue
+
+                    # ---------------------------------
+                    # PREPROCESS
+                    # ---------------------------------
+                    processed_img = preprocess_image(img)
+
+                    # ---------------------------------
+                    # SAVE
+                    # ---------------------------------
+                    output_path = os.path.join(
+                        output_dir,
+                        file
+                    )
+
+                    cv2.imwrite(
+                        output_path,
+                        processed_img
+                    )
+
+                    count += 1
+
+                    # ---------------------------------
+                    # UPDATE PROGRESS TEXT
+                    # ---------------------------------
+                    progress_bar.set_postfix({
+                        "Processed": count,
+                        "Failed": failed
+                    })
+
+                except Exception:
+                    failed += 1
+                    continue
+
+            # ---------------------------------
+            # SUMMARY
+            # ---------------------------------
+            print(f"\n✅ {split}/{class_name}")
+            print(f"✔ Processed: {count}")
+            print(f"❌ Failed: {failed}")
+            print("-" * 40)
+
+
+# ---------------------------------
+# RUN
+# ---------------------------------
+if __name__ == "__main__":
+    process_all()

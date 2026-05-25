@@ -1,13 +1,19 @@
+
 # import os
 # import random
+# import cv2
+# import numpy as np
+
 # import torch
 # import torch.nn as nn
 # import torch.optim as optim
-# import numpy as np
-# import cv2
+# import torch.nn.functional as F
 
 # from log import log
 
+# # -----------------------------
+# # CONFIG
+# # -----------------------------
 # DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # DATA_DIR = r"G:\Ai-CDD\data\preprocessed\stage4\train"
@@ -17,163 +23,443 @@
 # os.makedirs(CHECKPOINT_DIR, exist_ok=True)
 
 # IMG_SIZE = 224
-# EPISODES = 10000
+
 # LR = 1e-3
 
+# EPISODES_PER_EPOCH = 100
+# EPOCHS = 100
+
+# SEED = 42
+
+# VALID_EXT = (".png", ".jpg", ".jpeg", ".bmp")
+
 # # -----------------------------
-# # DATA LOADER (EPISODIC)
+# # REPRODUCIBILITY
+# # -----------------------------
+# random.seed(SEED)
+# np.random.seed(SEED)
+
+# torch.manual_seed(SEED)
+
+# if torch.cuda.is_available():
+#     torch.cuda.manual_seed_all(SEED)
+
+# # -----------------------------
+# # DATASET
 # # -----------------------------
 # class Dataset:
+
 #     def __init__(self, root):
-#         self.data = {"NORMAL": [], "TUBERCULOSIS": []}
+
+#         self.data = {
+#             "NORMAL": [],
+#             "TUBERCULOSIS": []
+#         }
 
 #         for cls in self.data:
+
 #             path = os.path.join(root, cls)
-#             self.data[cls] = [os.path.join(path, f) for f in os.listdir(path)]
+
+#             self.data[cls] = [
+#                 os.path.join(path, f)
+#                 for f in os.listdir(path)
+#                 if f.lower().endswith(VALID_EXT)
+#             ]
+
+#             print(f"{cls}: {len(self.data[cls])}")
 
 #     def sample_episode(self, k=5):
+
 #         support = []
 #         query = []
 
 #         for label, cls in enumerate(["NORMAL", "TUBERCULOSIS"]):
-#             samples = random.sample(self.data[cls], k + k)
+
+#             samples = random.sample(self.data[cls], k * 2)
 
 #             for i in range(k):
 #                 support.append((samples[i], label))
-#             for i in range(k, 2*k):
+
+#             for i in range(k, 2 * k):
 #                 query.append((samples[i], label))
 
 #         return support, query
 
 
-# def load_image(path):
-#     img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-#     img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
-#     img = img.astype(np.float32) / 255.0
-#     return torch.tensor(img).unsqueeze(0)
+# class FullDataset:
 
+#     def __init__(self, root):
+
+#         self.samples = []
+
+#         for label, cls in enumerate(["NORMAL", "TUBERCULOSIS"]):
+
+#             path = os.path.join(root, cls)
+
+#             files = [
+#                 f for f in os.listdir(path)
+#                 if f.lower().endswith(VALID_EXT)
+#             ]
+
+#             for f in files:
+#                 self.samples.append(
+#                     (os.path.join(path, f), label)
+#                 )
+
+# # -----------------------------
+# # IMAGE LOADER
+# # -----------------------------
+# def load_image(path):
+
+#     img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+
+#     if img is None:
+#         raise ValueError(f"Failed to load: {path}")
+
+#     img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+
+#     img = img.astype(np.float32) / 255.0
+
+#     if img.mean() < 0.01:
+#         img = np.zeros((IMG_SIZE, IMG_SIZE), dtype=np.float32)
+
+#     tensor = torch.tensor(
+#         img,
+#         dtype=torch.float32
+#     ).unsqueeze(0)
+
+#     return tensor
 
 # # -----------------------------
 # # MODEL
 # # -----------------------------
 # class CNN(nn.Module):
+
 #     def __init__(self):
 #         super().__init__()
 
 #         self.net = nn.Sequential(
-#             nn.Conv2d(1, 32, 3, padding=1), nn.BatchNorm2d(32), nn.ReLU(),
-#             nn.Conv2d(32, 32, 3, padding=1), nn.BatchNorm2d(32), nn.ReLU(),
+
+#             nn.Conv2d(1, 32, 3, padding=1),
+#             nn.BatchNorm2d(32),
+#             nn.ReLU(),
+
+#             nn.Conv2d(32, 32, 3, padding=1),
+#             nn.BatchNorm2d(32),
+#             nn.ReLU(),
+
 #             nn.MaxPool2d(2),
 
-#             nn.Conv2d(32, 64, 3, padding=1), nn.BatchNorm2d(64), nn.ReLU(),
-#             nn.Conv2d(64, 64, 3, padding=1), nn.BatchNorm2d(64), nn.ReLU(),
+#             nn.Conv2d(32, 64, 3, padding=1),
+#             nn.BatchNorm2d(64),
+#             nn.ReLU(),
+
+#             nn.Conv2d(64, 64, 3, padding=1),
+#             nn.BatchNorm2d(64),
+#             nn.ReLU(),
+
 #             nn.MaxPool2d(2),
 
-#             nn.Conv2d(64, 128, 3, padding=1), nn.BatchNorm2d(128), nn.ReLU(),
-#             nn.Conv2d(128, 128, 3, padding=1), nn.BatchNorm2d(128), nn.ReLU(),
+#             nn.Conv2d(64, 128, 3, padding=1),
+#             nn.BatchNorm2d(128),
+#             nn.ReLU(),
+
+#             nn.Conv2d(128, 128, 3, padding=1),
+#             nn.BatchNorm2d(128),
+#             nn.ReLU(),
+
 #             nn.MaxPool2d(2),
 
-#             nn.Conv2d(128, 256, 3, padding=1), nn.BatchNorm2d(256), nn.ReLU(),
+#             nn.Conv2d(128, 256, 3, padding=1),
+#             nn.BatchNorm2d(256),
+#             nn.ReLU(),
+
 #             nn.AdaptiveAvgPool2d(1)
 #         )
 
 #     def forward(self, x):
-#         x = self.net(x)
-#         return x.view(x.size(0), -1)
 
+#         x = self.net(x)
+
+#         x = x.view(x.size(0), -1)
+
+#         x = F.normalize(x, dim=1)
+
+#         return x
 
 # # -----------------------------
-# # PROTOTYPE LOGIC
+# # PROTOTYPES
 # # -----------------------------
 # def compute_prototypes(embeddings, labels):
+
 #     prototypes = []
+
 #     for c in [0, 1]:
+
 #         class_emb = embeddings[labels == c]
-#         prototypes.append(class_emb.mean(0))
+
+#         proto = class_emb.mean(0)
+
+#         proto = F.normalize(proto, dim=0)
+
+#         prototypes.append(proto)
+
 #     return torch.stack(prototypes)
 
-
+# # -----------------------------
+# # DISTANCE
+# # -----------------------------
 # def euclidean_dist(x, y):
-#     return ((x.unsqueeze(1) - y.unsqueeze(0))**2).sum(2)
 
+#     return ((x.unsqueeze(1) - y.unsqueeze(0)) ** 2).sum(2)
 
 # # -----------------------------
-# # TRAIN LOOP
+# # VALIDATION
+# # -----------------------------
+# def validate(model, train_data, val_data):
+
+#     model.eval()
+
+#     # -------------------------
+#     # BUILD PROTOTYPES
+#     # FROM TRAIN SET
+#     # -------------------------
+#     train_embeddings = []
+#     train_labels = []
+
+#     with torch.no_grad():
+
+#         for cls_idx, cls_name in enumerate(["NORMAL", "TUBERCULOSIS"]):
+
+#             sample_paths = random.sample(
+#                 train_data.data[cls_name],
+#                 min(200, len(train_data.data[cls_name]))
+#             )
+
+#             for path in sample_paths:
+
+#                 img = load_image(path).unsqueeze(0).to(DEVICE)
+
+#                 emb = model(img)
+
+#                 train_embeddings.append(emb)
+
+#                 train_labels.append(cls_idx)
+
+#     train_embeddings = torch.cat(train_embeddings)
+
+#     train_labels = torch.tensor(train_labels).to(DEVICE)
+
+#     prototypes = compute_prototypes(
+#         train_embeddings,
+#         train_labels
+#     )
+
+#     # -------------------------
+#     # VALIDATE
+#     # -------------------------
+#     correct = 0
+#     total = 0
+
+#     tb_tp = 0
+#     tb_fn = 0
+
+#     with torch.no_grad():
+
+#         for path, label in val_data.samples:
+
+#             img = load_image(path).unsqueeze(0).to(DEVICE)
+
+#             emb = model(img)
+
+#             dists = euclidean_dist(emb, prototypes)
+
+#             pred = torch.argmax(-dists, dim=1).item()
+
+#             if pred == label:
+#                 correct += 1
+
+#             if label == 1:
+
+#                 if pred == 1:
+#                     tb_tp += 1
+#                 else:
+#                     tb_fn += 1
+
+#             total += 1
+
+#     acc = correct / total
+
+#     recall_tb = tb_tp / (tb_tp + tb_fn + 1e-8)
+
+#     return acc, recall_tb
+
+# # -----------------------------
+# # TRAIN
 # # -----------------------------
 # def train():
-#     dataset = Dataset(DATA_DIR)
+
+#     train_data = Dataset(DATA_DIR)
+
+#     val_data = FullDataset(VAL_DIR)
+
 #     model = CNN().to(DEVICE)
-#     optimizer = optim.Adam(model.parameters(), lr=LR)
 
-#     start_episode = 0
-#     best_loss = float("inf")
+#     optimizer = optim.Adam(
+#         model.parameters(),
+#         lr=LR
+#     )
 
-#     # RESUME
-#     checkpoint_path = os.path.join(CHECKPOINT_DIR, "latest.pth")
-#     if os.path.exists(checkpoint_path):
-#         ckpt = torch.load(checkpoint_path)
-#         model.load_state_dict(ckpt["model"])
-#         optimizer.load_state_dict(ckpt["opt"])
-#         start_episode = ckpt["episode"]
-#         best_loss = ckpt["best_loss"]
-#         log(f"Resumed from episode {start_episode}")
+#     best_acc = 0
 
-#     for episode in range(start_episode, EPISODES):
+#     checkpoint_path = os.path.join(
+#         CHECKPOINT_DIR,
+#         "latest.pth"
+#     )
 
-#         support, query = dataset.sample_episode()
+#     for epoch in range(EPOCHS):
 
-#         sx = torch.stack([load_image(x[0]) for x in support]).to(DEVICE)
-#         sy = torch.tensor([x[1] for x in support]).to(DEVICE)
+#         model.train()
 
-#         qx = torch.stack([load_image(x[0]) for x in query]).to(DEVICE)
-#         qy = torch.tensor([x[1] for x in query]).to(DEVICE)
+#         epoch_loss = 0
 
-#         emb_s = model(sx)
-#         emb_q = model(qx)
+#         correct = 0
+#         total = 0
 
-#         prototypes = compute_prototypes(emb_s, sy)
+#         for episode in range(EPISODES_PER_EPOCH):
 
-#         dists = euclidean_dist(emb_q, prototypes)
-#         loss = nn.CrossEntropyLoss()(-dists, qy)
+#             support, query = train_data.sample_episode()
 
-#         optimizer.zero_grad()
-#         loss.backward()
-#         optimizer.step()
+#             sx = torch.stack([
+#                 load_image(x[0]) for x in support
+#             ]).to(DEVICE)
 
-#         if episode % 50 == 0:
-#             log(f"Episode {episode} | Loss: {loss.item():.4f}")
+#             sy = torch.tensor([
+#                 x[1] for x in support
+#             ]).to(DEVICE)
 
+#             qx = torch.stack([
+#                 load_image(x[0]) for x in query
+#             ]).to(DEVICE)
+
+#             qy = torch.tensor([
+#                 x[1] for x in query
+#             ]).to(DEVICE)
+
+#             emb_s = model(sx)
+
+#             emb_q = model(qx)
+
+#             prototypes = compute_prototypes(
+#                 emb_s,
+#                 sy
+#             )
+
+#             dists = euclidean_dist(
+#                 emb_q,
+#                 prototypes
+#             )
+
+#             loss = nn.CrossEntropyLoss()(
+#                 -dists / 0.1,
+#                 qy
+#             )
+
+#             optimizer.zero_grad()
+
+#             loss.backward()
+
+#             optimizer.step()
+
+#             epoch_loss += loss.item()
+
+#             preds = torch.argmax(-dists, dim=1)
+
+#             correct += (preds == qy).sum().item()
+
+#             total += qy.size(0)
+
+#         train_loss = epoch_loss / EPISODES_PER_EPOCH
+
+#         train_acc = correct / total
+
+#         val_acc, val_tb_recall = validate(
+#             model,
+#             train_data,
+#             val_data
+#         )
+
+#         log(
+#             f"Epoch {epoch+1}/{EPOCHS} | "
+#             f"Train Loss: {train_loss:.4f} | "
+#             f"Train Acc: {train_acc:.4f} | "
+#             f"Val Acc: {val_acc:.4f} | "
+#             f"TB Recall: {val_tb_recall:.4f}"
+#         )
+
+#         # -------------------------
 #         # SAVE LATEST
+#         # -------------------------
 #         torch.save({
 #             "model": model.state_dict(),
-#             "opt": optimizer.state_dict(),
-#             "episode": episode,
-#             "best_loss": best_loss
+#             "optimizer": optimizer.state_dict(),
+#             "epoch": epoch
 #         }, checkpoint_path)
 
+#         # -------------------------
 #         # SAVE BEST
-#         if loss.item() < best_loss:
-#             best_loss = loss.item()
-#             torch.save(model.state_dict(),
-#                        os.path.join(CHECKPOINT_DIR, "best.pth"))
-#             log(f"🔥 New best model saved at episode {episode}")
+#         # -------------------------
+#         if val_acc > best_acc:
 
+#             best_acc = val_acc
 
+#             torch.save(
+#                 model.state_dict(),
+#                 os.path.join(
+#                     CHECKPOINT_DIR,
+#                     "best.pth"
+#                 )
+#             )
+
+#             log(f"✅ New best model saved")
+
+# # -----------------------------
+# # MAIN
+# # -----------------------------
 # if __name__ == "__main__":
 #     train()
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 import os
 import random
+import cv2
+import numpy as np
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import numpy as np
-import cv2
 import torch.nn.functional as F
+
+from torchvision import transforms
 
 from log import log
 
+# =========================================================
+# CONFIG
+# =========================================================
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 DATA_DIR = r"G:\Ai-CDD\data\preprocessed\stage4\train"
@@ -183,232 +469,464 @@ CHECKPOINT_DIR = "checkpoints"
 os.makedirs(CHECKPOINT_DIR, exist_ok=True)
 
 IMG_SIZE = 224
+
 LR = 1e-3
 
 EPISODES_PER_EPOCH = 100
-EPOCHS = 100
+EPOCHS = 60
 
-# -----------------------------
+K_SHOT = 5
+
+SEED = 42
+
+VALID_EXT = (".png", ".jpg", ".jpeg", ".bmp")
+
+# =========================================================
+# REPRODUCIBILITY
+# =========================================================
+random.seed(SEED)
+np.random.seed(SEED)
+
+torch.manual_seed(SEED)
+
+if torch.cuda.is_available():
+    torch.cuda.manual_seed_all(SEED)
+
+# =========================================================
+# AUGMENTATION
+# =========================================================
+augment = transforms.Compose([
+
+    transforms.ToPILImage(),
+
+    transforms.RandomRotation(5),
+
+    transforms.RandomAffine(
+        degrees=0,
+        translate=(0.03, 0.03),
+        scale=(0.97, 1.03)
+    ),
+
+    transforms.ToTensor()
+])
+
+# =========================================================
 # DATASET
-# -----------------------------
+# =========================================================
 class Dataset:
+
     def __init__(self, root):
-        self.data = {"NORMAL": [], "TUBERCULOSIS": []}
+
+        self.data = {
+            "NORMAL": [],
+            "TUBERCULOSIS": []
+        }
 
         for cls in self.data:
-            path = os.path.join(root, cls)
-            self.data[cls] = [os.path.join(path, f) for f in os.listdir(path)]
 
-    def sample_episode(self, k=5):
+            path = os.path.join(root, cls)
+
+            self.data[cls] = [
+
+                os.path.join(path, f)
+
+                for f in os.listdir(path)
+
+                if f.lower().endswith(VALID_EXT)
+            ]
+
+            print(f"{cls}: {len(self.data[cls])}")
+
+    def sample_episode(self, k=K_SHOT):
+
         support = []
         query = []
 
-        for label, cls in enumerate(["NORMAL", "TUBERCULOSIS"]):
-            samples = random.sample(self.data[cls], k * 2)
+        for label, cls in enumerate(
+            ["NORMAL", "TUBERCULOSIS"]
+        ):
+
+            samples = random.sample(
+                self.data[cls],
+                k * 2
+            )
 
             for i in range(k):
                 support.append((samples[i], label))
-            for i in range(k, 2*k):
+
+            for i in range(k, k * 2):
                 query.append((samples[i], label))
 
         return support, query
 
 
 class FullDataset:
+
     def __init__(self, root):
+
         self.samples = []
 
-        for label, cls in enumerate(["NORMAL", "TUBERCULOSIS"]):
+        for label, cls in enumerate(
+            ["NORMAL", "TUBERCULOSIS"]
+        ):
+
             path = os.path.join(root, cls)
-            for f in os.listdir(path):
-                self.samples.append((os.path.join(path, f), label))
 
+            files = [
 
-def load_image(path):
-    img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
-    img = img.astype(np.float32) / 255.0
-    return torch.tensor(img).unsqueeze(0)
+                f for f in os.listdir(path)
 
+                if f.lower().endswith(VALID_EXT)
+            ]
 
-# -----------------------------
+            for f in files:
+
+                self.samples.append(
+                    (os.path.join(path, f), label)
+                )
+
+# =========================================================
+# IMAGE LOADER
+# =========================================================
+def load_image(path, train=False):
+
+    img = cv2.imread(
+        path,
+        cv2.IMREAD_GRAYSCALE
+    )
+
+    if img is None:
+        raise ValueError(f"Failed to load: {path}")
+
+    img = cv2.resize(
+        img,
+        (IMG_SIZE, IMG_SIZE)
+    )
+
+    # CLAHE
+    clahe = cv2.createCLAHE(
+        clipLimit=2.0,
+        tileGridSize=(8, 8)
+    )
+
+    img = clahe.apply(img)
+
+    if train:
+
+        img = augment(img)
+
+    else:
+
+        img = torch.tensor(
+            img / 255.0,
+            dtype=torch.float32
+        ).unsqueeze(0)
+
+    return img
+
+# =========================================================
 # MODEL
-# -----------------------------
+# =========================================================
 class CNN(nn.Module):
+
     def __init__(self):
+
         super().__init__()
 
         self.net = nn.Sequential(
-            nn.Conv2d(1, 32, 3, padding=1), nn.BatchNorm2d(32), nn.ReLU(),
-            nn.Conv2d(32, 32, 3, padding=1), nn.BatchNorm2d(32), nn.ReLU(),
+
+            nn.Conv2d(1, 32, 3, padding=1),
+            nn.BatchNorm2d(32),
+            nn.ReLU(),
+
             nn.MaxPool2d(2),
 
-            nn.Conv2d(32, 64, 3, padding=1), nn.BatchNorm2d(64), nn.ReLU(),
-            nn.Conv2d(64, 64, 3, padding=1), nn.BatchNorm2d(64), nn.ReLU(),
+            nn.Conv2d(32, 64, 3, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(),
+
             nn.MaxPool2d(2),
 
-            nn.Conv2d(64, 128, 3, padding=1), nn.BatchNorm2d(128), nn.ReLU(),
-            nn.Conv2d(128, 128, 3, padding=1), nn.BatchNorm2d(128), nn.ReLU(),
+            nn.Conv2d(64, 128, 3, padding=1),
+            nn.BatchNorm2d(128),
+            nn.ReLU(),
+
             nn.MaxPool2d(2),
 
-            nn.Conv2d(128, 256, 3, padding=1), nn.BatchNorm2d(256), nn.ReLU(),
+            nn.Conv2d(128, 256, 3, padding=1),
+            nn.BatchNorm2d(256),
+            nn.ReLU(),
+
             nn.AdaptiveAvgPool2d(1)
         )
 
-    # def forward(self, x):
-    #     x = self.net(x)
-    #     return x.view(x.size(0), -1)
     def forward(self, x):
+
         x = self.net(x)
+
         x = x.view(x.size(0), -1)
-        return F.normalize(x, dim=1)  
 
+        x = F.normalize(x, dim=1)
 
-# -----------------------------
-# PROTOTYPE LOGIC
-# -----------------------------
-def compute_prototypes(embeddings, labels):
+        return x
+
+# =========================================================
+# PROTOTYPES
+# =========================================================
+def compute_prototypes(
+    embeddings,
+    labels
+):
+
     prototypes = []
+
     for c in [0, 1]:
-        class_emb = embeddings[labels == c]
-        prototypes.append(class_emb.mean(0))
+
+        proto = embeddings[
+            labels == c
+        ].mean(0)
+
+        proto = F.normalize(
+            proto,
+            dim=0
+        )
+
+        prototypes.append(proto)
+
     return torch.stack(prototypes)
 
+# =========================================================
+# COSINE SIMILARITY
+# =========================================================
+def cosine_logits(x, y):
 
-def euclidean_dist(x, y):
-    return ((x.unsqueeze(1) - y.unsqueeze(0))**2).sum(2)
+    return F.cosine_similarity(
+        x.unsqueeze(1),
+        y.unsqueeze(0),
+        dim=2
+    )
 
-
-# -----------------------------
+# =========================================================
 # VALIDATION
-# -----------------------------
-def validate(model, dataset):
+# =========================================================
+def validate(model, train_data, val_data):
+
     model.eval()
+
+    train_emb = []
+    train_labels = []
+
+    with torch.no_grad():
+
+        for cls_idx, cls_name in enumerate(
+            ["NORMAL", "TUBERCULOSIS"]
+        ):
+
+            paths = random.sample(
+                train_data.data[cls_name],
+                min(200, len(train_data.data[cls_name]))
+            )
+
+            for path in paths:
+
+                img = load_image(path)
+
+                img = img.unsqueeze(0).to(DEVICE)
+
+                emb = model(img)
+
+                train_emb.append(emb)
+
+                train_labels.append(cls_idx)
+
+    train_emb = torch.cat(train_emb)
+
+    train_labels = torch.tensor(
+        train_labels
+    ).to(DEVICE)
+
+    prototypes = compute_prototypes(
+        train_emb,
+        train_labels
+    )
 
     correct = 0
     total = 0
 
-    tb_tp = 0
-    tb_fn = 0
-
-    # 🔥 Build prototypes from entire validation set
-    embeddings = []
-    labels = []
-
     with torch.no_grad():
-        for path, label in dataset.samples:
-            img = load_image(path).unsqueeze(0).to(DEVICE)
+
+        for path, label in val_data.samples:
+
+            img = load_image(path)
+
+            img = img.unsqueeze(0).to(DEVICE)
+
             emb = model(img)
 
-            embeddings.append(emb)
-            labels.append(label)
+            logits = cosine_logits(
+                emb,
+                prototypes
+            )
 
-    embeddings = torch.cat(embeddings)
-    labels = torch.tensor(labels).to(DEVICE)
-
-    prototypes = compute_prototypes(embeddings, labels)
-
-    # 🔥 Now classify using distance
-    with torch.no_grad():
-        for path, label in dataset.samples:
-
-            img = load_image(path).unsqueeze(0).to(DEVICE)
-            emb = model(img)
-
-            dists = euclidean_dist(emb, prototypes)
-            pred = torch.argmax(-dists, dim=1).item()
+            pred = torch.argmax(
+                logits,
+                dim=1
+            ).item()
 
             if pred == label:
                 correct += 1
 
-            if label == 1:
-                if pred == 1:
-                    tb_tp += 1
-                else:
-                    tb_fn += 1
-
             total += 1
 
-    acc = correct / total
-    recall_tb = tb_tp / (tb_tp + tb_fn + 1e-8)
+    return correct / total
 
-    return acc, recall_tb
-
-# -----------------------------
+# =========================================================
 # TRAIN
-# -----------------------------
+# =========================================================
 def train():
+
     train_data = Dataset(DATA_DIR)
+
     val_data = FullDataset(VAL_DIR)
 
     model = CNN().to(DEVICE)
-    optimizer = optim.Adam(model.parameters(), lr=LR)
 
-    best_loss = float("inf")
+    optimizer = optim.Adam(
+        model.parameters(),
+        lr=LR
+    )
 
-    checkpoint_path = os.path.join(CHECKPOINT_DIR, "latest.pth")
+    criterion = nn.CrossEntropyLoss()
+
+    best_acc = 0
 
     for epoch in range(EPOCHS):
 
         model.train()
 
         epoch_loss = 0
+
         correct = 0
         total = 0
 
-        for _ in range(EPISODES_PER_EPOCH):
+        for _ in range(
+            EPISODES_PER_EPOCH
+        ):
 
             support, query = train_data.sample_episode()
 
-            sx = torch.stack([load_image(x[0]) for x in support]).to(DEVICE)
-            sy = torch.tensor([x[1] for x in support]).to(DEVICE)
+            sx = torch.stack([
 
-            qx = torch.stack([load_image(x[0]) for x in query]).to(DEVICE)
-            qy = torch.tensor([x[1] for x in query]).to(DEVICE)
+                load_image(
+                    x[0],
+                    train=True
+                )
+
+                for x in support
+
+            ]).to(DEVICE)
+
+            sy = torch.tensor([
+                x[1]
+                for x in support
+            ]).to(DEVICE)
+
+            qx = torch.stack([
+
+                load_image(
+                    x[0],
+                    train=True
+                )
+
+                for x in query
+
+            ]).to(DEVICE)
+
+            qy = torch.tensor([
+                x[1]
+                for x in query
+            ]).to(DEVICE)
 
             emb_s = model(sx)
+
             emb_q = model(qx)
 
-            prototypes = compute_prototypes(emb_s, sy)
-            prototypes = F.normalize(prototypes, dim=1)
-            if _ == 0:  # first episode only
-                print("Proto distance:", torch.norm(prototypes[0] - prototypes[1]).item())
+            prototypes = compute_prototypes(
+                emb_s,
+                sy
+            )
 
-            dists = euclidean_dist(emb_q, prototypes)
-            # loss = nn.CrossEntropyLoss()(-dists, qy)
-            loss = nn.CrossEntropyLoss()(-dists / 0.1, qy)
+            logits = cosine_logits(
+                emb_q,
+                prototypes
+            )
+
+            loss = criterion(
+                logits,
+                qy
+            )
 
             optimizer.zero_grad()
+
             loss.backward()
+
             optimizer.step()
 
             epoch_loss += loss.item()
 
-            preds = torch.argmax(-dists, dim=1)
-            correct += (preds == qy).sum().item()
+            preds = torch.argmax(
+                logits,
+                dim=1
+            )
+
+            correct += (
+                preds == qy
+            ).sum().item()
+
             total += qy.size(0)
 
-        train_loss = epoch_loss / EPISODES_PER_EPOCH
         train_acc = correct / total
 
-        # VALIDATION
-        val_acc, val_recall_tb = validate(model, val_data)
+        val_acc = validate(
+            model,
+            train_data,
+            val_data
+        )
 
-        log(f"Epoch {epoch} | Train Loss: {train_loss:.4f} | Train Acc: {train_acc:.4f} | Val Acc: {val_acc:.4f} | TB Recall: {val_recall_tb:.4f}")
+        log(
+            f"Epoch {epoch+1} | "
+            f"Loss: {epoch_loss:.4f} | "
+            f"Train Acc: {train_acc:.4f} | "
+            f"Val Acc: {val_acc:.4f}"
+        )
 
-        # SAVE
-        torch.save({
-            "model": model.state_dict(),
-            "opt": optimizer.state_dict(),
-            "epoch": epoch,
-            "best_loss": best_loss
-        }, checkpoint_path)
+        torch.save(
+            model.state_dict(),
+            os.path.join(
+                CHECKPOINT_DIR,
+                "latest.pth"
+            )
+        )
 
-        if train_loss < best_loss:
-            best_loss = train_loss
-            torch.save(model.state_dict(), os.path.join(CHECKPOINT_DIR, "best.pth"))
-            log(f"New best model at epoch {epoch}")
+        if val_acc > best_acc:
 
+            best_acc = val_acc
 
+            torch.save(
+                model.state_dict(),
+                os.path.join(
+                    CHECKPOINT_DIR,
+                    "best.pth"
+                )
+            )
+
+            log(
+                "✅ Best model updated"
+            )
+
+# =========================================================
+# MAIN
+# =========================================================
 if __name__ == "__main__":
+
     train()
