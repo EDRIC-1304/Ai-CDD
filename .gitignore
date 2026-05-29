@@ -165,7 +165,9 @@ venv/
 .DS_Store
 Thumbs.db
 
-data/
+data/preprocessed/
+data/raw/updated dataset/val
+data/raw/updated dataset/train
 dataset/
 dataset1/
 dataset2/
@@ -181,6 +183,6 @@ src/debug_stage4/
 src/failed_masks/
 cleaned_dataset/
 classification_checkpoints/
-data\segmentation/
+data/segmentation/
 models_saved/
 segmentation_checkpoints

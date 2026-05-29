@@ -1,0 +1,25 @@
+MULTI-CLASS DATASET SUMMARY
+====================================
+
+CLASS: health
+train          : 1045
+val            : 223
+internal_test  : 149
+external_test  : 76
+TOTAL          : 1493
+
+CLASS: sick
+train          : 1045
+val            : 223
+internal_test  : 149
+external_test  : 76
+TOTAL          : 1493
+
+CLASS: tb
+train          : 1045
+val            : 223
+internal_test  : 149
+external_test  : 76
+TOTAL          : 1493
+
+FINAL TOTAL DATASET SIZE: 4479
