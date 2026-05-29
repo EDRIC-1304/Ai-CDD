@@ -1,0 +1,26 @@
+
+=====================================
+DATASET LEAKAGE REPORT
+=====================================
+
+Processed Batch: 2000 - 3999
+
+
+========== EXACT DUPLICATES ==========
+
+Total Groups: 0
+
+
+========== PERCEPTUAL DUPLICATES ==========
+
+Total Pairs: 0
+
+
+========== SAME PATIENT ==========
+
+Total Patients: 0
+
+
+========== NEAR IDENTICAL ==========
+
+Total Pairs: 0

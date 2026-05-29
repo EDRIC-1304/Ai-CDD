@@ -1,0 +1,8 @@
+normal | train | G:\Ai-CDD\data\raw\dataset\train\NORMAL\normal_00001.png
+normal | train | G:\Ai-CDD\data\raw\dataset\train\NORMAL\normal_02000.png
+normal | train | G:\Ai-CDD\data\raw\dataset\train\NORMAL\normal_04000.png
+unknown | train | G:\Ai-CDD\data\raw\dataset\train\TUBERCULOSIS\tb_00001.png
+unknown | train | G:\Ai-CDD\data\raw\dataset\train\TUBERCULOSIS\tb_01002.png
+normal | test | G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00643.png
+normal | val | G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00925.png
+unknown | val | G:\Ai-CDD\data\raw\dataset\val\TUBERCULOSIS\tb_00523.png

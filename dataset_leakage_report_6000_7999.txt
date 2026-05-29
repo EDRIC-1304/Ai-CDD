@@ -1,0 +1,36 @@
+
+=====================================
+DATASET LEAKAGE REPORT
+=====================================
+
+Processed Batch: 6000 - 7999
+
+
+========== EXACT DUPLICATES ==========
+
+Total Groups: 0
+
+
+========== PERCEPTUAL DUPLICATES ==========
+
+Total Pairs: 2
+
+--- Pair 1 ---
+Distance: 4
+train --> G:\Ai-CDD\data\raw\dataset\train\TUBERCULOSIS\tb_01096.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00095.png
+
+--- Pair 2 ---
+Distance: 4
+train --> G:\Ai-CDD\data\raw\dataset\train\TUBERCULOSIS\tb_02303.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00095.png
+
+
+========== SAME PATIENT ==========
+
+Total Patients: 0
+
+
+========== NEAR IDENTICAL ==========
+
+Total Pairs: 0

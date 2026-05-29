@@ -1,0 +1,7 @@
+G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00643.png
+G:\Ai-CDD\data\raw\dataset\train\NORMAL\normal_02000.png
+G:\Ai-CDD\data\raw\dataset\train\NORMAL\normal_04000.png
+G:\Ai-CDD\data\raw\dataset\train\TUBERCULOSIS\tb_01002.png
+G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00925.png
+G:\Ai-CDD\data\raw\dataset\val\TUBERCULOSIS\tb_00001.png
+G:\Ai-CDD\data\raw\dataset\val\TUBERCULOSIS\tb_00523.png

@@ -9,10 +9,16 @@ from tqdm import tqdm
 IMG_SIZE = 224
 
 # -----------------------------
-# PATHS
+# UPDATED PATHS
 # -----------------------------
+
+# INPUT IMAGES = OUTPUT OF STAGE 1
 BASE_IMG = r"G:\Ai-CDD\data\preprocessed\stage1"
+
+# INPUT MASKS = OUTPUT OF STAGE 3 MASK CLEANING
 BASE_MASK = r"G:\Ai-CDD\data\preprocessed\stage3"
+
+# OUTPUT = FINAL ROI DATASET
 BASE_OUT = r"G:\Ai-CDD\data\preprocessed\stage4"
 
 # -----------------------------
@@ -118,7 +124,14 @@ def extract_lung_roi(image, mask):
 # -----------------------------
 def process_split(split):
 
-    for class_name in ["NORMAL", "TUBERCULOSIS"]:
+    # -----------------------------
+    # UPDATED CLASSES
+    # -----------------------------
+    for class_name in [
+        "health",
+        "sick",
+        "tb"
+    ]:
 
         img_dir = os.path.join(
             BASE_IMG,
@@ -272,19 +285,12 @@ def process_split(split):
 # -----------------------------
 # RUN
 # -----------------------------
-for split in ["train", "val", "test"]:
+for split in [
+    "train",
+    "val",
+    "internal_test",
+    "external_test"
+]:
     process_split(split)
 
 print("\n🎯 Stage 4 ROI extraction complete")
-
-
-
-
-
-
-
-
-
-
-
-

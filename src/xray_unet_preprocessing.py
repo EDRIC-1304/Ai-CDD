@@ -26,9 +26,13 @@ os.makedirs(DEBUG_DIR, exist_ok=True)
 os.makedirs(FAILED_DIR, exist_ok=True)
 
 # -----------------------------
-# PATHS
+# UPDATED PATHS
 # -----------------------------
+
+# INPUT = OUTPUT OF STAGE 1 PREPROCESSING
 BASE_IN = r"G:\Ai-CDD\data\preprocessed\stage1"
+
+# OUTPUT = STAGE 2 PREPROCESSING
 BASE_OUT = r"G:\Ai-CDD\data\preprocessed\stage2"
 
 # -----------------------------
@@ -195,7 +199,14 @@ print("✅ UNet model loaded successfully")
 # -----------------------------
 def process_split(split):
 
-    for class_name in ["NORMAL", "TUBERCULOSIS"]:
+    # -----------------------------
+    # UPDATED CLASSES
+    # -----------------------------
+    for class_name in [
+        "health",
+        "sick",
+        "tb"
+    ]:
 
         input_dir = os.path.join(
             BASE_IN,
@@ -361,8 +372,13 @@ def process_split(split):
 # -----------------------------
 # RUN
 # -----------------------------
-# for split in ["train", "val", "test"]:
+for split in [
+    "train",
+    "val",
+    "internal_test",
+    "external_test"
+]:
 
-#     process_split(split)
+    process_split(split)
 
-# print("\n🎯 Stage 2 preprocessing complete")
+print("\n🎯 Stage 2 preprocessing complete")

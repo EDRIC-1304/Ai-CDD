@@ -14,8 +14,12 @@ from tqdm import tqdm
 # ---------------------------------
 # PATHS
 # ---------------------------------
-BASE_IN = r"data/raw/dataset"
-BASE_OUT = r"data/preprocessed/stage1"
+
+# INPUT DATASET
+BASE_IN = r"G:\Ai-CDD\data\raw\updated dataset"
+
+# OUTPUT PREPROCESSED DATASET
+BASE_OUT = r"G:\Ai-CDD\data\preprocessed\stage1"
 
 # ---------------------------------
 # PARAMETERS
@@ -64,7 +68,26 @@ def process_all():
         ".bmp"
     )
 
-    for split in ["train", "val", "test"]:
+    # ---------------------------------
+    # UPDATED SPLITS
+    # ---------------------------------
+    splits = [
+        "train",
+        "val",
+        "internal_test",
+        "external_test"
+    ]
+
+    # ---------------------------------
+    # UPDATED CLASSES
+    # ---------------------------------
+    classes = [
+        "health",
+        "sick",
+        "tb"
+    ]
+
+    for split in splits:
 
         split_in = os.path.join(
             BASE_IN,
@@ -76,10 +99,7 @@ def process_all():
             split
         )
 
-        for class_name in [
-            "NORMAL",
-            "TUBERCULOSIS"
-        ]:
+        for class_name in classes:
 
             # ---------------------------------
             # INPUT / OUTPUT PATHS
@@ -137,6 +157,7 @@ def process_all():
                 )
 
                 try:
+
                     # ---------------------------------
                     # READ IMAGE
                     # ---------------------------------

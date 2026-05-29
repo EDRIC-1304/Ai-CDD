@@ -1,0 +1,1855 @@
+
+=====================================
+DATASET LEAKAGE REPORT
+=====================================
+
+Processed Batch: 8000 - 9999
+
+
+========== EXACT DUPLICATES ==========
+
+Total Groups: 23
+
+--- Group 1 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00645.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00671.png
+
+--- Group 2 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00651.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00672.png
+
+--- Group 3 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00657.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00673.png
+
+--- Group 4 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00666.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00674.png
+
+--- Group 5 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00670.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00675.png
+
+--- Group 6 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00676.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00676.png
+
+--- Group 7 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00680.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00677.png
+
+--- Group 8 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00682.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00678.png
+
+--- Group 9 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00687.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00679.png
+
+--- Group 10 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00714.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00680.png
+
+--- Group 11 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00717.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00681.png
+
+--- Group 12 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00720.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00682.png
+
+--- Group 13 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00721.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00683.png
+
+--- Group 14 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00726.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00684.png
+
+--- Group 15 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00735.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00685.png
+
+--- Group 16 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00738.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00686.png
+
+--- Group 17 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00742.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00687.png
+
+--- Group 18 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00743.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00688.png
+
+--- Group 19 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00746.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00689.png
+
+--- Group 20 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00751.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00690.png
+
+--- Group 21 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01077.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00530.png
+
+--- Group 22 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01078.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00532.png
+
+--- Group 23 ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01079.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00533.png
+
+
+========== PERCEPTUAL DUPLICATES ==========
+
+Total Pairs: 35
+
+--- Pair 1 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00645.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00671.png
+
+--- Pair 2 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00651.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00672.png
+
+--- Pair 3 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00657.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00673.png
+
+--- Pair 4 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00666.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00674.png
+
+--- Pair 5 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00670.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00675.png
+
+--- Pair 6 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00676.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00676.png
+
+--- Pair 7 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00680.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00677.png
+
+--- Pair 8 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00682.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00678.png
+
+--- Pair 9 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00687.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00679.png
+
+--- Pair 10 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00714.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00680.png
+
+--- Pair 11 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00717.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00681.png
+
+--- Pair 12 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00720.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00682.png
+
+--- Pair 13 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00721.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00683.png
+
+--- Pair 14 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00722.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00543.png
+
+--- Pair 15 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00726.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00684.png
+
+--- Pair 16 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00735.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00685.png
+
+--- Pair 17 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00738.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00686.png
+
+--- Pair 18 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00742.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00687.png
+
+--- Pair 19 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00743.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00688.png
+
+--- Pair 20 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00746.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00689.png
+
+--- Pair 21 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00751.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00690.png
+
+--- Pair 22 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00766.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00544.png
+
+--- Pair 23 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00795.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00613.png
+
+--- Pair 24 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00804.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00835.png
+
+--- Pair 25 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00806.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00754.png
+
+--- Pair 26 ---
+Distance: 2
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00816.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00628.png
+
+--- Pair 27 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00894.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00640.png
+
+--- Pair 28 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00991.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00655.png
+
+--- Pair 29 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00991.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00727.png
+
+--- Pair 30 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01011.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00592.png
+
+--- Pair 31 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01013.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00703.png
+
+--- Pair 32 ---
+Distance: 4
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01049.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00706.png
+
+--- Pair 33 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01077.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00530.png
+
+--- Pair 34 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01078.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00532.png
+
+--- Pair 35 ---
+Distance: 0
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01079.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00533.png
+
+
+========== SAME PATIENT ==========
+
+Total Patients: 1
+
+--- Patient 1: normal ---
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00644.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00645.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00646.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00647.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00648.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00649.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00650.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00651.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00652.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00653.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00654.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00655.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00656.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00657.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00658.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00659.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00660.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00661.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00662.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00663.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00664.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00665.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00666.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00667.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00668.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00669.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00670.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00671.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00672.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00673.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00674.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00675.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00676.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00677.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00678.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00679.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00680.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00681.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00682.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00683.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00684.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00685.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00686.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00687.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00688.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00689.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00690.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00691.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00692.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00693.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00694.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00695.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00696.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00697.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00698.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00699.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00700.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00701.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00702.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00703.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00704.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00705.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00706.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00707.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00708.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00709.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00710.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00711.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00712.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00713.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00714.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00715.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00716.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00717.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00718.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00719.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00720.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00721.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00722.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00723.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00724.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00725.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00726.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00727.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00728.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00729.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00730.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00731.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00732.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00733.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00734.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00735.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00736.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00737.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00738.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00739.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00740.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00741.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00742.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00743.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00744.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00745.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00746.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00747.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00748.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00749.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00750.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00751.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00752.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00753.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00754.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00755.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00756.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00757.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00758.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00759.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00760.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00761.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00762.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00763.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00764.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00765.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00766.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00767.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00768.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00769.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00770.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00771.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00772.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00773.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00774.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00775.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00776.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00777.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00778.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00779.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00780.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00781.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00782.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00783.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00784.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00785.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00786.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00787.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00788.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00789.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00790.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00791.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00792.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00793.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00794.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00795.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00796.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00797.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00798.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00799.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00800.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00801.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00802.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00803.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00804.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00805.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00806.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00807.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00808.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00809.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00810.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00811.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00812.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00813.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00814.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00815.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00816.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00817.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00818.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00819.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00820.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00821.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00822.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00823.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00824.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00825.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00826.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00827.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00828.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00829.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00830.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00831.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00832.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00833.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00834.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00835.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00836.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00837.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00838.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00839.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00840.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00841.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00842.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00843.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00844.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00845.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00846.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00847.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00848.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00849.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00850.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00851.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00852.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00853.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00854.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00855.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00856.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00857.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00858.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00859.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00860.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00861.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00862.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00863.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00864.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00865.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00866.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00867.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00868.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00869.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00870.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00871.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00872.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00873.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00874.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00875.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00876.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00877.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00878.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00879.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00880.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00881.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00882.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00883.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00884.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00885.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00886.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00887.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00888.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00889.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00890.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00891.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00892.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00893.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00894.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00895.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00896.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00897.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00898.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00899.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00900.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00901.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00902.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00903.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00904.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00905.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00906.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00907.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00908.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00909.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00910.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00911.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00912.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00913.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00914.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00915.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00916.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00917.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00918.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00919.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00920.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00921.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00922.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00923.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00924.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00925.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00926.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00927.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00928.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00929.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00930.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00931.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00932.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00933.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00934.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00935.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00936.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00937.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00938.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00939.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00940.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00941.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00942.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00943.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00944.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00945.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00946.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00947.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00948.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00949.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00950.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00951.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00952.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00953.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00954.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00955.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00956.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00957.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00958.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00959.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00960.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00961.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00962.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00963.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00964.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00965.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00966.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00967.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00968.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00969.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00970.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00971.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00972.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00973.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00974.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00975.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00976.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00977.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00978.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00979.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00980.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00981.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00982.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00983.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00984.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00985.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00986.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00987.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00988.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00989.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00990.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00991.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00992.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00993.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00994.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00995.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00996.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00997.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00998.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00999.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01000.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01001.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01002.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01003.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01004.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01005.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01006.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01007.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01008.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01009.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01010.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01011.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01012.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01013.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01014.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01015.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01016.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01017.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01018.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01019.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01020.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01021.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01022.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01023.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01024.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01025.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01026.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01027.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01028.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01029.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01030.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01031.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01032.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01033.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01034.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01035.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01036.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01037.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01038.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01039.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01040.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01041.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01042.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01043.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01044.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01045.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01046.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01047.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01048.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01049.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01050.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01051.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01052.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01053.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01054.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01055.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01056.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01057.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01058.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01059.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01060.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01061.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01062.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01063.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01064.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01065.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01066.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01067.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01068.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01069.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01070.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01071.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01072.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01073.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01074.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01075.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01076.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01077.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01078.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01079.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01080.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01081.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01082.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01083.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01084.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01085.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01086.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01087.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01088.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01089.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01090.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01091.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01092.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01093.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01094.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01095.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01096.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01097.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01098.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01099.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01100.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01101.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01102.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01103.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01104.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01105.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01106.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01107.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01108.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01109.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01110.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01111.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01112.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01113.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01114.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01115.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01116.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01117.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01118.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01119.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01120.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01121.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01122.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01123.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01124.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01125.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01126.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01127.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01128.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01129.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01130.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01131.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01132.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01133.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01134.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01135.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01136.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01137.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01138.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01139.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01140.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01141.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01142.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01143.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01144.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01145.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01146.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01147.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01148.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01149.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01150.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01151.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01152.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01153.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01154.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01155.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01156.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01157.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01158.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01159.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01160.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01161.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01162.png
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01163.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00001.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00002.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00003.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00004.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00005.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00006.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00007.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00008.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00009.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00010.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00011.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00012.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00013.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00014.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00015.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00016.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00017.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00018.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00019.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00020.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00021.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00022.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00023.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00024.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00025.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00026.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00027.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00028.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00029.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00030.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00031.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00032.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00033.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00034.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00035.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00036.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00037.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00038.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00039.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00040.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00041.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00042.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00043.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00044.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00045.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00046.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00047.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00048.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00049.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00050.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00051.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00052.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00053.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00054.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00055.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00056.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00057.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00058.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00059.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00060.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00061.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00062.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00063.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00064.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00065.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00066.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00067.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00068.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00069.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00070.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00071.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00072.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00073.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00074.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00075.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00076.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00077.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00078.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00079.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00080.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00081.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00082.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00083.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00084.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00085.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00086.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00087.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00088.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00089.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00090.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00091.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00092.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00093.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00094.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00095.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00096.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00097.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00098.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00099.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00100.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00101.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00102.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00103.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00104.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00105.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00106.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00107.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00108.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00109.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00110.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00111.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00112.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00113.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00114.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00115.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00116.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00117.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00118.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00119.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00120.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00121.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00122.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00123.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00124.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00125.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00126.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00127.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00128.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00129.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00130.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00131.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00132.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00133.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00134.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00135.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00136.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00137.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00138.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00139.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00140.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00141.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00142.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00143.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00144.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00145.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00146.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00147.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00148.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00149.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00150.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00151.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00152.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00153.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00154.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00155.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00156.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00157.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00158.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00159.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00160.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00161.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00162.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00163.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00164.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00165.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00166.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00167.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00168.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00169.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00170.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00171.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00172.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00173.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00174.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00175.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00176.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00177.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00178.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00179.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00180.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00181.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00182.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00183.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00184.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00185.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00186.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00187.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00188.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00189.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00190.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00191.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00192.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00193.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00194.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00195.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00196.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00197.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00198.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00199.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00200.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00201.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00202.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00203.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00204.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00205.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00206.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00207.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00208.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00209.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00210.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00211.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00212.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00213.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00214.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00215.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00216.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00217.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00218.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00219.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00220.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00221.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00222.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00223.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00224.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00225.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00226.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00227.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00228.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00229.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00230.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00231.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00232.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00233.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00234.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00235.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00236.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00237.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00238.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00239.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00240.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00241.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00242.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00243.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00244.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00245.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00246.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00247.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00248.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00249.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00250.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00251.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00252.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00253.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00254.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00255.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00256.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00257.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00258.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00259.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00260.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00261.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00262.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00263.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00264.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00265.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00266.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00267.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00268.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00269.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00270.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00271.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00272.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00273.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00274.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00275.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00276.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00277.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00278.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00279.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00280.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00281.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00282.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00283.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00284.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00285.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00286.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00287.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00288.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00289.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00290.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00291.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00292.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00293.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00294.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00295.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00296.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00297.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00298.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00299.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00300.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00301.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00302.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00303.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00304.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00305.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00306.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00307.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00308.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00309.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00310.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00311.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00312.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00313.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00314.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00315.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00316.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00317.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00318.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00319.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00320.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00321.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00322.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00323.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00324.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00325.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00326.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00327.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00328.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00329.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00330.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00331.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00332.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00333.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00334.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00335.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00336.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00337.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00338.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00339.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00340.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00341.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00342.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00343.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00344.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00345.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00346.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00347.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00348.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00349.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00350.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00351.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00352.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00353.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00354.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00355.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00356.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00357.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00358.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00359.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00360.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00361.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00362.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00363.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00364.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00365.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00366.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00367.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00368.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00369.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00370.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00371.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00372.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00373.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00374.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00375.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00376.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00377.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00378.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00379.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00380.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00381.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00382.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00383.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00384.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00385.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00386.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00387.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00388.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00389.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00390.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00391.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00392.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00393.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00394.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00395.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00396.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00397.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00398.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00399.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00400.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00401.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00402.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00403.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00404.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00405.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00406.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00407.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00408.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00409.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00410.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00411.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00412.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00413.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00414.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00415.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00416.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00417.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00418.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00419.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00420.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00421.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00422.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00423.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00424.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00425.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00426.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00427.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00428.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00429.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00430.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00431.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00432.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00433.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00434.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00435.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00436.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00437.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00438.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00439.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00440.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00441.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00442.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00443.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00444.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00445.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00446.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00447.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00448.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00449.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00450.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00451.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00452.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00453.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00454.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00455.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00456.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00457.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00458.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00459.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00460.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00461.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00462.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00463.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00464.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00465.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00466.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00467.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00468.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00469.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00470.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00471.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00472.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00473.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00474.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00475.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00476.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00477.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00478.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00479.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00480.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00481.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00482.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00483.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00484.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00485.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00486.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00487.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00488.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00489.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00490.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00491.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00492.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00493.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00494.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00495.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00496.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00497.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00498.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00499.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00500.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00501.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00502.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00503.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00504.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00505.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00506.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00507.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00508.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00509.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00510.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00511.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00512.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00513.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00514.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00515.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00516.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00517.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00518.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00519.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00520.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00521.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00522.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00523.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00524.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00525.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00526.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00527.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00528.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00529.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00530.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00531.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00532.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00533.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00534.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00535.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00536.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00537.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00538.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00539.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00540.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00541.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00542.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00543.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00544.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00545.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00546.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00547.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00548.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00549.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00550.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00551.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00552.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00553.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00554.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00555.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00556.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00557.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00558.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00559.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00560.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00561.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00562.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00563.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00564.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00565.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00566.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00567.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00568.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00569.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00570.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00571.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00572.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00573.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00574.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00575.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00576.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00577.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00578.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00579.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00580.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00581.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00582.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00583.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00584.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00585.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00586.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00587.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00588.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00589.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00590.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00591.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00592.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00593.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00594.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00595.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00596.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00597.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00598.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00599.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00600.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00601.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00602.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00603.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00604.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00605.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00606.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00607.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00608.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00609.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00610.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00611.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00612.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00613.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00614.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00615.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00616.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00617.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00618.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00619.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00620.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00621.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00622.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00623.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00624.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00625.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00626.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00627.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00628.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00629.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00630.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00631.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00632.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00633.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00634.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00635.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00636.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00637.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00638.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00639.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00640.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00641.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00642.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00643.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00644.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00645.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00646.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00647.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00648.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00649.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00650.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00651.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00652.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00653.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00654.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00655.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00656.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00657.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00658.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00659.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00660.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00661.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00662.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00663.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00664.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00665.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00666.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00667.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00668.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00669.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00670.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00671.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00672.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00673.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00674.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00675.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00676.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00677.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00678.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00679.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00680.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00681.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00682.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00683.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00684.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00685.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00686.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00687.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00688.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00689.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00690.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00691.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00692.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00693.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00694.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00695.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00696.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00697.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00698.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00699.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00700.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00701.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00702.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00703.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00704.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00705.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00706.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00707.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00708.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00709.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00710.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00711.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00712.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00713.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00714.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00715.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00716.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00717.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00718.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00719.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00720.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00721.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00722.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00723.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00724.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00725.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00726.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00727.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00728.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00729.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00730.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00731.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00732.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00733.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00734.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00735.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00736.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00737.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00738.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00739.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00740.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00741.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00742.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00743.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00744.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00745.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00746.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00747.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00748.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00749.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00750.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00751.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00752.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00753.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00754.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00755.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00756.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00757.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00758.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00759.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00760.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00761.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00762.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00763.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00764.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00765.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00766.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00767.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00768.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00769.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00770.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00771.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00772.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00773.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00774.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00775.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00776.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00777.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00778.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00779.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00780.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00781.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00782.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00783.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00784.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00785.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00786.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00787.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00788.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00789.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00790.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00791.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00792.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00793.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00794.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00795.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00796.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00797.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00798.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00799.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00800.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00801.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00802.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00803.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00804.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00805.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00806.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00807.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00808.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00809.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00810.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00811.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00812.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00813.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00814.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00815.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00816.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00817.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00818.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00819.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00820.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00821.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00822.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00823.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00824.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00825.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00826.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00827.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00828.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00829.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00830.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00831.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00832.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00833.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00834.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00835.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00836.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00837.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00838.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00839.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00840.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00841.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00842.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00843.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00844.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00845.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00846.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00847.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00848.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00849.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00850.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00851.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00852.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00853.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00854.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00855.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00856.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00857.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00858.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00859.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00860.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00861.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00862.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00863.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00864.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00865.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00866.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00867.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00868.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00869.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00870.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00871.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00872.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00873.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00874.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00875.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00876.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00877.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00878.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00879.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00880.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00881.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00882.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00883.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00884.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00885.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00886.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00887.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00888.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00889.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00890.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00891.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00892.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00893.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00894.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00895.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00896.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00897.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00898.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00899.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00900.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00901.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00902.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00903.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00904.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00905.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00906.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00907.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00908.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00909.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00910.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00911.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00912.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00913.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00914.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00915.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00916.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00917.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00918.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00919.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00920.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00921.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00922.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00923.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00924.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00925.png
+
+
+========== NEAR IDENTICAL ==========
+
+Total Pairs: 23
+
+--- Pair 1 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00645.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00671.png
+
+--- Pair 2 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00651.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00672.png
+
+--- Pair 3 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00657.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00673.png
+
+--- Pair 4 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00666.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00674.png
+
+--- Pair 5 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00670.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00675.png
+
+--- Pair 6 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00676.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00676.png
+
+--- Pair 7 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00680.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00677.png
+
+--- Pair 8 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00682.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00678.png
+
+--- Pair 9 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00687.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00679.png
+
+--- Pair 10 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00714.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00680.png
+
+--- Pair 11 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00717.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00681.png
+
+--- Pair 12 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00720.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00682.png
+
+--- Pair 13 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00721.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00683.png
+
+--- Pair 14 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00726.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00684.png
+
+--- Pair 15 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00735.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00685.png
+
+--- Pair 16 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00738.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00686.png
+
+--- Pair 17 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00742.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00687.png
+
+--- Pair 18 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00743.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00688.png
+
+--- Pair 19 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00746.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00689.png
+
+--- Pair 20 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_00751.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00690.png
+
+--- Pair 21 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01077.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00530.png
+
+--- Pair 22 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01078.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00532.png
+
+--- Pair 23 ---
+SSIM: 1.0000
+test --> G:\Ai-CDD\data\raw\dataset\test\NORMAL\normal_01079.png
+val --> G:\Ai-CDD\data\raw\dataset\val\NORMAL\normal_00533.png
