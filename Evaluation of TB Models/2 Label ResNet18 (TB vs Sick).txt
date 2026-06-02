@@ -1,0 +1,22 @@
+2 Label ResNet18 (TB vs Sick)
+============================================================
+
+Accuracy    : 0.9564
+Precision   : 0.9416
+Recall      : 0.9732
+Specificity : 0.9396
+F1 Score    : 0.9571
+ROC-AUC     : 0.9909
+
+Confusion Matrix
+[[140   9]
+ [  4 145]]
+
+              precision    recall  f1-score   support
+
+        sick       0.97      0.94      0.96       149
+          tb       0.94      0.97      0.96       149
+
+    accuracy                           0.96       298
+   macro avg       0.96      0.96      0.96       298
+weighted avg       0.96      0.96      0.96       298

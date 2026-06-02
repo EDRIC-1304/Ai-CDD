@@ -1,0 +1,22 @@
+RESNET18 BINARY EVALUATION
+============================================================
+
+Accuracy    : 0.9799
+Precision   : 0.9864
+Recall      : 0.9732
+Specificity : 0.9866
+F1 Score    : 0.9797
+ROC-AUC     : 0.9977
+
+Confusion Matrix
+[[147   2]
+ [  4 145]]
+
+              precision    recall  f1-score   support
+
+      health       0.97      0.99      0.98       149
+        sick       0.99      0.97      0.98       149
+
+    accuracy                           0.98       298
+   macro avg       0.98      0.98      0.98       298
+weighted avg       0.98      0.98      0.98       298
